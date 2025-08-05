@@ -1,22 +1,36 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Test\Feature;
+
+use PHPUnit\Framework\Assert;
 
 trait AssertionCounter
 {
-    protected $numAssertions = 0;
+    protected int $numAssertions = 0;
 
-    public function getNumAssertions()
+    public function getNumAssertions(): int
     {
         return $this->numAssertions;
     }
 
-    protected function assertionCounterStart()
+    /**
+     * This method is not covered by the backward compatibility promise
+     * for PHPUnit, but is nice to have for extensions.
+     */
+    public function addToAssertionCount(int $count): void
     {
-        \PHPUnit\Framework\Assert::resetCount();
+        $this->numAssertions += $count;
     }
 
-    protected function assertionCounterEnd()
+    protected function assertionCounterStart(): void
     {
-        $this->numAssertions = \PHPUnit\Framework\Assert::getCount();
+        Assert::resetCount();
+    }
+
+    protected function assertionCounterEnd(): void
+    {
+        $this->numAssertions = Assert::getCount();
     }
 }

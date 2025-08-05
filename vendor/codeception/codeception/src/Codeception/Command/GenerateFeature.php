@@ -1,12 +1,20 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Command;
 
 use Codeception\Lib\Generator\Feature;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+
+use function basename;
+use function preg_match;
+use function rtrim;
 
 /**
  * Generates Feature file (in Gherkin):
@@ -16,44 +24,42 @@ use Symfony\Component\Console\Output\OutputInterface;
  * * `codecept g:feature suite login.feature -c path/to/project`
  *
  */
+#[AsCommand(
+    name: 'generate:feature',
+    description: 'Generates empty feature file in suite'
+)]
 class GenerateFeature extends Command
 {
-    use Shared\FileSystem;
-    use Shared\Config;
+    use Shared\FileSystemTrait;
+    use Shared\ConfigTrait;
 
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDefinition([
-            new InputArgument('suite', InputArgument::REQUIRED, 'suite to be tested'),
-            new InputArgument('feature', InputArgument::REQUIRED, 'feature to be generated'),
-            new InputOption('config', 'c', InputOption::VALUE_OPTIONAL, 'Use custom path for config'),
-        ]);
+        $this
+            ->addArgument('suite', InputArgument::REQUIRED, 'suite to be tested')
+            ->addArgument('feature', InputArgument::REQUIRED, 'feature to be generated')
+            ->addOption('config', 'c', InputOption::VALUE_OPTIONAL, 'Use custom path for config');
     }
 
-    public function getDescription()
-    {
-        return 'Generates empty feature file in suite';
-    }
-
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $suite = $input->getArgument('suite');
-        $filename = $input->getArgument('feature');
+        $filename = (string)$input->getArgument('feature');
 
         $config = $this->getSuiteConfig($suite);
         $this->createDirectoryFor($config['path'], $filename);
 
-        $gen = new Feature(basename($filename));
-        if (!preg_match('~\.feature$~', $filename)) {
+        $feature = new Feature(basename($filename));
+        if (!preg_match('#\.feature$#', $filename)) {
             $filename .= '.feature';
         }
-        $full_path = rtrim($config['path'], DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $filename;
-        $res = $this->createFile($full_path, $gen->produce());
+        $fullPath = rtrim((string) $config['path'], DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . $filename;
+        $res = $this->createFile($fullPath, $feature->produce());
         if (!$res) {
-            $output->writeln("<error>Feature $filename already exists</error>");
-            return 1;
+            $output->writeln("<error>Feature {$filename} already exists</error>");
+            return Command::FAILURE;
         }
-        $output->writeln("<info>Feature was created in $full_path</info>");
-        return 0;
+        $output->writeln("<info>Feature was created in {$fullPath}</info>");
+        return Command::SUCCESS;
     }
 }

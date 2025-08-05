@@ -1,12 +1,18 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Command;
 
 use Codeception\Configuration;
 use Codeception\Lib\Generator\Snapshot as SnapshotGenerator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
+use function ucfirst;
 
 /**
  * Generates Snapshot.
@@ -17,33 +23,30 @@ use Symfony\Component\Console\Output\OutputInterface;
  * * `codecept g:snapshot Products`
  * * `codecept g:snapshot acceptance UserEmails`
  */
+#[AsCommand(
+    name: 'generate:snapshot',
+    description: 'Generates empty Snapshot class'
+)]
 class GenerateSnapshot extends Command
 {
-    use Shared\FileSystem;
-    use Shared\Config;
+    use Shared\FileSystemTrait;
+    use Shared\ConfigTrait;
 
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDefinition([
-            new InputArgument('suite', InputArgument::REQUIRED, 'Suite name or snapshot name)'),
-            new InputArgument('snapshot', InputArgument::OPTIONAL, 'Name of snapshot'),
-        ]);
-        parent::configure();
+        $this
+            ->addArgument('suite', InputArgument::REQUIRED, 'Suite name or snapshot name')
+            ->addArgument('snapshot', InputArgument::OPTIONAL, 'Name of snapshot');
     }
 
-    public function getDescription()
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        return 'Generates empty Snapshot class';
-    }
-
-    public function execute(InputInterface $input, OutputInterface $output)
-    {
-        $suite = $input->getArgument('suite');
+        $suite = (string)$input->getArgument('suite');
         $class = $input->getArgument('snapshot');
 
         if (!$class) {
             $class = $suite;
-            $suite = null;
+            $suite = '';
         }
 
         $conf = $suite
@@ -60,14 +63,14 @@ class GenerateSnapshot extends Command
 
         $output->writeln($filename);
 
-        $gen = new SnapshotGenerator($conf, ucfirst($suite) . '\\' . $class);
-        $res = $this->createFile($filename, $gen->produce());
+        $snapshot = new SnapshotGenerator($conf, ucfirst($suite) . '\\' . $class);
+        $res = $this->createFile($filename, $snapshot->produce());
 
         if (!$res) {
-            $output->writeln("<error>Snapshot $filename already exists</error>");
-            return 1;
+            $output->writeln("<error>Snapshot {$filename} already exists</error>");
+            return Command::FAILURE;
         }
-        $output->writeln("<info>Snapshot was created in $filename</info>");
-        return 0;
+        $output->writeln("<info>Snapshot was created in {$filename}</info>");
+        return Command::SUCCESS;
     }
 }

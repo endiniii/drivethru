@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 trait ResetMocks
 {
     protected function resetMockObjects()
@@ -8,7 +11,6 @@ trait ResetMocks
             $refl = $refl->getParentClass();
         }
         $prop = $refl->getProperty('mockObjects');
-        $prop->setAccessible(true);
         $prop->setValue($this, array());
     }
 }

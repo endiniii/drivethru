@@ -1,52 +1,54 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Command;
 
 use Codeception\Configuration;
 use Codeception\Lib\Generator\Helper;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
+use function ucfirst;
 
 /**
  * Creates empty Helper class.
  *
  * * `codecept g:helper MyHelper`
  * * `codecept g:helper "My\Helper"`
- *
  */
+#[AsCommand(
+    name: 'generate:helper',
+    description: 'Generates a new helper'
+)]
 class GenerateHelper extends Command
 {
-    use Shared\FileSystem;
-    use Shared\Config;
+    use Shared\FileSystemTrait;
+    use Shared\ConfigTrait;
 
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDefinition([
-            new InputArgument('name', InputArgument::REQUIRED, 'helper name'),
-        ]);
+        $this->addArgument('name', InputArgument::REQUIRED, 'Helper name');
     }
 
-    public function getDescription()
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        return 'Generates new helper';
-    }
-
-    public function execute(InputInterface $input, OutputInterface $output)
-    {
-        $name = ucfirst($input->getArgument('name'));
+        $name = ucfirst((string)$input->getArgument('name'));
         $config = $this->getGlobalConfig();
 
         $path = $this->createDirectoryFor(Configuration::supportDir() . 'Helper', $name);
         $filename = $path . $this->getShortClassName($name) . '.php';
 
-        $res = $this->createFile($filename, (new Helper($name, $config['namespace']))->produce());
+        $res = $this->createFile($filename, (new Helper($config, $name))->produce());
         if ($res) {
-            $output->writeln("<info>Helper $filename created</info>");
-            return 0;
-        } else {
-            $output->writeln("<error>Error creating helper $filename</error>");
-            return 1;
+            $output->writeln("<info>Helper {$filename} created</info>");
+            return Command::SUCCESS;
         }
+
+        $output->writeln(sprintf('<error>Error creating helper %s</error>', $filename));
+        return Command::FAILURE;
     }
 }

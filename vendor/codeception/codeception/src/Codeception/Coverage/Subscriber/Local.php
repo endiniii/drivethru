@@ -1,10 +1,18 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Coverage\Subscriber;
 
+use Codeception\Coverage\Filter;
+use Codeception\Coverage\PhpCodeCoverageFactory;
 use Codeception\Coverage\SuiteSubscriber;
 use Codeception\Event\SuiteEvent;
 use Codeception\Events;
+use Codeception\Exception\ConfigurationException;
+use Codeception\Exception\ModuleException;
 use Codeception\Lib\Interfaces\Remote;
+use Exception;
 
 /**
  * Collects code coverage from unit and functional tests.
@@ -12,36 +20,48 @@ use Codeception\Lib\Interfaces\Remote;
  */
 class Local extends SuiteSubscriber
 {
-    public static $events = [
+    /**
+     * @var array<string, string>
+     */
+    public static array $events = [
         Events::SUITE_BEFORE => 'beforeSuite',
         Events::SUITE_AFTER  => 'afterSuite',
     ];
 
+    protected ?Remote $module = null;
+
+    protected function isEnabled(): bool
+    {
+        return !$this->module instanceof Remote && $this->settings['enabled'];
+    }
+
     /**
-     * @var Remote
+     * @throws ConfigurationException|ModuleException|Exception
      */
-    protected $module;
-
-    protected function isEnabled()
+    public function beforeSuite(SuiteEvent $event): void
     {
-        return $this->module === null and $this->settings['enabled'];
-    }
-
-    public function beforeSuite(SuiteEvent $e)
-    {
-        $this->applySettings($e->getSettings());
-        $this->module = $this->getServerConnectionModule($e->getSuite()->getModules());
+        $this->applySettings($event->getSettings());
+        $this->module = $this->getServerConnectionModule($event->getSuite()->getModules());
         if (!$this->isEnabled()) {
             return;
         }
-        $this->applyFilter($e->getResult());
+
+        $event->getSuite()->collectCodeCoverage(true);
+
+        Filter::setup($this->coverage)
+            ->whiteList($this->filters)
+            ->blackList($this->filters);
     }
 
-    public function afterSuite(SuiteEvent $e)
+    public function afterSuite(SuiteEvent $event): void
     {
         if (!$this->isEnabled()) {
             return;
         }
-        $this->mergeToPrint($e->getResult()->getCodeCoverage());
+
+        $codeCoverage = PhpCodeCoverageFactory::build();
+        PhpCodeCoverageFactory::clear();
+
+        $this->mergeToPrint($codeCoverage);
     }
 }

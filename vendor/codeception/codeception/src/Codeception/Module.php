@@ -1,11 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codeception;
 
+use Codeception\Exception\ModuleConfigException;
 use Codeception\Exception\ModuleException;
 use Codeception\Lib\Interfaces\RequiresPackage;
 use Codeception\Lib\ModuleContainer;
 use Codeception\Util\Shared\Asserts;
+use Exception;
 
 /**
  * Basic class for Modules and Helpers.
@@ -20,58 +24,40 @@ abstract class Module
     use Asserts;
 
     /**
-     * @var ModuleContainer
-     */
-    protected $moduleContainer;
-
-    /**
      * By setting it to false module wan't inherit methods of parent class.
-     *
-     * @var bool
      */
-    public static $includeInheritedActions = true;
+    public static bool $includeInheritedActions = true;
 
     /**
      * Allows to explicitly set what methods have this class.
-     *
-     * @var array
      */
-    public static $onlyActions = [];
+    public static array $onlyActions = [];
 
     /**
      * Allows to explicitly exclude actions from module.
-     *
-     * @var array
      */
-    public static $excludeActions = [];
+    public static array $excludeActions = [];
 
     /**
      * Allows to rename actions
-     *
-     * @var array
      */
-    public static $aliases = [];
+    public static array $aliases = [];
 
-    protected $storage = [];
+    protected array $storage = [];
 
-    protected $config = [];
+    protected array $config = [];
 
-    protected $backupConfig = [];
+    protected array $backupConfig = [];
 
-    protected $requiredFields = [];
+    protected array $requiredFields = [];
 
     /**
      * Module constructor.
      *
      * Requires module container (to provide access between modules of suite) and config.
-     *
-     * @param ModuleContainer $moduleContainer
-     * @param array|null $config
      */
-    public function __construct(ModuleContainer $moduleContainer, $config = null)
+    public function __construct(protected ModuleContainer $moduleContainer, ?array $config = null)
     {
-        $this->moduleContainer = $moduleContainer;
-
         $this->backupConfig = $this->config;
         if (is_array($config)) {
             $this->_setConfig($config);
@@ -89,13 +75,12 @@ abstract class Module
      * }
      * ```
      *
-     * @param $config
-     * @throws Exception\ModuleConfigException
-     * @throws ModuleException
+     * @throws ModuleConfigException|ModuleException
      */
-    public function _setConfig($config)
+    public function _setConfig(array $config): void
     {
-        $this->config = $this->backupConfig = array_merge($this->config, $config);
+        $this->config       = array_merge($this->config, $config);
+        $this->backupConfig = $this->config;
         $this->validateConfig();
     }
 
@@ -113,11 +98,9 @@ abstract class Module
      * }
      * ```
      *
-     * @param $config
-     * @throws Exception\ModuleConfigException
-     * @throws ModuleException
+     * @throws ModuleConfigException|ModuleException
      */
-    public function _reconfigure($config)
+    public function _reconfigure(array $config): void
     {
         $this->config = array_merge($this->backupConfig, $config);
         $this->onReconfigure();
@@ -135,7 +118,7 @@ abstract class Module
     /**
      * Reverts config changed by `_reconfigure`
      */
-    public function _resetConfig()
+    public function _resetConfig(): void
     {
         $this->config = $this->backupConfig;
     }
@@ -143,57 +126,51 @@ abstract class Module
     /**
      * Validates current config for required fields and required packages.
      *
-     * @throws Exception\ModuleConfigException
-     * @throws ModuleException
+     * @throws ModuleConfigException|ModuleException
      */
-    protected function validateConfig()
+    protected function validateConfig(): void
     {
-        $fields = array_keys($this->config);
-        if (array_intersect($this->requiredFields, $fields) != $this->requiredFields) {
-            throw new Exception\ModuleConfigException(
-                get_class($this),
-                "\nOptions: " . implode(', ', $this->requiredFields) . " are required\n" .
-                "Please, update the configuration and set all the required fields\n\n"
+        if (($missing = array_diff($this->requiredFields, array_keys($this->config))) !== []) {
+            throw new ModuleConfigException(
+                static::class,
+                sprintf(
+                    "\nOptions: %s are required\nPlease, update the configuration and set all the required fields\n\n",
+                    implode(', ', $missing)
+                )
             );
         }
+
         if ($this instanceof RequiresPackage) {
-            $errorMessage = '';
+            $errors = '';
             foreach ($this->_requires() as $className => $package) {
-                if (class_exists($className)) {
-                    continue;
+                if (!class_exists($className)) {
+                    $errors .= "Class {$className} can't be loaded, please add {$package} to composer.json\n";
                 }
-                $errorMessage .= "Class $className can't be loaded, please add $package to composer.json\n";
             }
-            if ($errorMessage) {
-                throw new ModuleException($this, $errorMessage);
+            if ($errors !== '') {
+                throw new ModuleException($this, $errors);
             }
         }
     }
 
     /**
      * Returns a module name for a Module, a class name for Helper
-     *
-     * @return string
      */
-    public function _getName()
+    public function _getName(): string
     {
-        $moduleName = '\\' . get_class($this);
+        $moduleName = '\\' . static::class;
 
-        if (strpos($moduleName, ModuleContainer::MODULE_NAMESPACE) === 0) {
-            return substr($moduleName, strlen(ModuleContainer::MODULE_NAMESPACE));
-        }
-
-        return $moduleName;
+        return str_starts_with($moduleName, ModuleContainer::MODULE_NAMESPACE)
+            ? substr($moduleName, strlen(ModuleContainer::MODULE_NAMESPACE))
+            : $moduleName;
     }
 
     /**
      * Checks if a module has required fields
-     *
-     * @return bool
      */
-    public function _hasRequiredFields()
+    public function _hasRequiredFields(): bool
     {
-        return !empty($this->requiredFields);
+        return $this->requiredFields !== [];
     }
 
     /**
@@ -205,10 +182,8 @@ abstract class Module
 
     /**
      * **HOOK** executed before suite
-     *
-     * @param array $settings
      */
-    public function _beforeSuite($settings = [])
+    public function _beforeSuite(array $settings = [])
     {
     }
 
@@ -221,8 +196,6 @@ abstract class Module
 
     /**
      * **HOOK** executed before step
-     *
-     * @param Step $step
      */
     public function _beforeStep(Step $step)
     {
@@ -230,8 +203,6 @@ abstract class Module
 
     /**
      * **HOOK** executed after step
-     *
-     * @param Step $step
      */
     public function _afterStep(Step $step)
     {
@@ -239,8 +210,6 @@ abstract class Module
 
     /**
      * **HOOK** executed before test
-     *
-     * @param TestInterface $test
      */
     public function _before(TestInterface $test)
     {
@@ -248,8 +217,6 @@ abstract class Module
 
     /**
      * **HOOK** executed after test
-     *
-     * @param TestInterface $test
      */
     public function _after(TestInterface $test)
     {
@@ -257,67 +224,50 @@ abstract class Module
 
     /**
      * **HOOK** executed when test fails but before `_after`
-     *
-     * @param TestInterface $test
-     * @param \Exception $fail
      */
-    public function _failed(TestInterface $test, $fail)
+    public function _failed(TestInterface $test, Exception $fail)
     {
     }
 
     /**
      * Print debug message to the screen.
-     *
-     * @param $message
      */
-    protected function debug($message)
+    protected function debug(mixed $message): void
     {
         codecept_debug($message);
     }
 
     /**
      * Print debug message with a title
-     *
-     * @param $title
-     * @param $message
      */
-    protected function debugSection($title, $message)
+    protected function debugSection(string $title, mixed $msg): void
     {
-        if (is_array($message) or is_object($message)) {
-            $message = stripslashes(json_encode($message));
+        if (is_array($msg) || is_object($msg)) {
+            $msg = json_encode($msg, JSON_THROW_ON_ERROR | JSON_INVALID_UTF8_SUBSTITUTE | JSON_UNESCAPED_SLASHES);
         }
-        $this->debug("[$title] $message");
+        $this->debug("[{$title}] {$msg}");
     }
 
     /**
      * Short text message to an amount of chars
-     *
-     * @param $message
-     * @param $chars
-     * @return string
      */
-    protected function shortenMessage($message, $chars = 150)
+    protected function shortenMessage(string $message, int $chars = 150): string
     {
         return mb_substr($message, 0, $chars, 'utf-8');
     }
 
     /**
      * Checks that module is enabled.
-     *
-     * @param $name
-     * @return bool
      */
-    protected function hasModule($name)
+    protected function hasModule(string $name): bool
     {
         return $this->moduleContainer->hasModule($name);
     }
 
     /**
      * Get all enabled modules
-     *
-     * @return array
      */
-    protected function getModules()
+    protected function getModules(): array
     {
         return $this->moduleContainer->all();
     }
@@ -330,14 +280,12 @@ abstract class Module
      * $this->getModule('WebDriver')->_findElements('.items');
      * ```
      *
-     * @param $name
-     * @return Module
      * @throws ModuleException
      */
-    protected function getModule($name)
+    protected function getModule(string $name): Module
     {
         if (!$this->hasModule($name)) {
-            throw new Exception\ModuleException(__CLASS__, "Module $name couldn't be connected");
+            $this->moduleContainer->throwMissingModuleExceptionWithSuggestion(self::class, $name);
         }
         return $this->moduleContainer->getModule($name);
     }
@@ -345,29 +293,24 @@ abstract class Module
     /**
      * Get config values or specific config item.
      *
-     * @param mixed $key
+     * @param string|null $key
      * @return mixed the config item's value or null if it doesn't exist
      */
-    public function _getConfig($key = null)
+    public function _getConfig(?string $key = null): mixed
     {
-        if (!$key) {
-            return $this->config;
-        }
-        if (isset($this->config[$key])) {
-            return $this->config[$key];
-        }
-        return null;
+        return $key === null ? $this->config : ($this->config[$key] ?? null);
     }
 
-    protected function scalarizeArray($array)
+    protected function scalarizeArray(array $array): array
     {
-        foreach ($array as $k => $v) {
-            if (!is_null($v) && !is_scalar($v)) {
-                $array[$k] = (is_array($v) || $v instanceof \ArrayAccess)
-                    ? $this->scalarizeArray($v)
-                    : (string)$v;
+        array_walk_recursive(
+            $array,
+            static function (&$value): void {
+                if (!is_null($value) && !is_scalar($value)) {
+                    $value = (string)$value;
+                }
             }
-        }
+        );
 
         return $array;
     }

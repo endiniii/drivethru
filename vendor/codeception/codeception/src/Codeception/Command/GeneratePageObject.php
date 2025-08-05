@@ -1,12 +1,18 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Command;
 
 use Codeception\Configuration;
 use Codeception\Lib\Generator\PageObject as PageObjectGenerator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+
+use function ucfirst;
 
 /**
  * Generates PageObject. Can be generated either globally, or just for one suite.
@@ -16,33 +22,30 @@ use Symfony\Component\Console\Output\OutputInterface;
  * * `codecept g:page Registration`
  * * `codecept g:page acceptance Login`
  */
+#[AsCommand(
+    name: 'generate:pageobject',
+    description: 'Generates empty PageObject class'
+)]
 class GeneratePageObject extends Command
 {
-    use Shared\FileSystem;
-    use Shared\Config;
+    use Shared\FileSystemTrait;
+    use Shared\ConfigTrait;
 
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDefinition([
-            new InputArgument('suite', InputArgument::REQUIRED, 'Either suite name or page object name)'),
-            new InputArgument('page', InputArgument::OPTIONAL, 'Page name of pageobject to represent'),
-        ]);
-        parent::configure();
+        $this
+            ->addArgument('suite', InputArgument::REQUIRED, 'Either suite name or page object name')
+            ->addArgument('page', InputArgument::OPTIONAL, 'Page name of pageobject to represent');
     }
 
-    public function getDescription()
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        return 'Generates empty PageObject class';
-    }
-
-    public function execute(InputInterface $input, OutputInterface $output)
-    {
-        $suite = $input->getArgument('suite');
+        $suite = (string)$input->getArgument('suite');
         $class = $input->getArgument('page');
 
         if (!$class) {
             $class = $suite;
-            $suite = null;
+            $suite = '';
         }
 
         $conf = $suite
@@ -59,18 +62,14 @@ class GeneratePageObject extends Command
 
         $output->writeln($filename);
 
-        $gen = new PageObjectGenerator($conf, ucfirst($suite) . '\\' . $class);
-        $res = $this->createFile($filename, $gen->produce());
+        $pageObject = new PageObjectGenerator($conf, ucfirst($suite) . '\\' . $class);
+        $res = $this->createFile($filename, $pageObject->produce());
 
         if (!$res) {
-            $output->writeln("<error>PageObject $filename already exists</error>");
-            return 1;
+            $output->writeln("<error>PageObject {$filename} already exists</error>");
+            return Command::FAILURE;
         }
-        $output->writeln("<info>PageObject was created in $filename</info>");
-        return 0;
-    }
-
-    protected function pathToPageObject($class, $suite)
-    {
+        $output->writeln("<info>PageObject was created in {$filename}</info>");
+        return Command::SUCCESS;
     }
 }

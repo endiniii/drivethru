@@ -1,9 +1,22 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Coverage\Subscriber;
 
 use Codeception\Configuration;
 use Codeception\Event\SuiteEvent;
+use Codeception\Lib\Interfaces\Web;
 use Codeception\Util\FileSystem;
+use PharData;
+
+use function file_put_contents;
+use function is_dir;
+use function mkdir;
+use function strtr;
+use function sys_get_temp_dir;
+use function tempnam;
+use function unlink;
 
 /**
  * When collecting code coverage on remote server
@@ -14,76 +27,55 @@ use Codeception\Util\FileSystem;
  */
 class RemoteServer extends LocalServer
 {
-    public function isEnabled()
+    public function isEnabled(): bool
     {
-        return $this->module and $this->settings['remote'] and $this->settings['enabled'];
+        return $this->module instanceof Web && $this->settings['remote'] && $this->settings['enabled'];
     }
 
-    public function afterSuite(SuiteEvent $e)
+    public function afterSuite(SuiteEvent $event): void
     {
         if (!$this->isEnabled()) {
             return;
         }
+        $suite = strtr($event->getSuite()->getName(), ['\\' => '.']);
 
-        $suite = strtr($e->getSuite()->getName(), ['\\' => '.']);
         if ($this->options['coverage-xml']) {
-            $this->retrieveAndPrintXml($suite);
+            $this->retrieveAndPrint('clover', $suite, '.remote.coverage.xml');
         }
         if ($this->options['coverage-html']) {
-            $this->retrieveAndPrintHtml($suite);
+            $this->retrieveToTempFileAndPrint('html', $suite, '.remote.coverage');
         }
         if ($this->options['coverage-crap4j']) {
-            $this->retrieveAndPrintCrap4j($suite);
+            $this->retrieveAndPrint('crap4j', $suite, '.remote.crap4j.xml');
+        }
+        if ($this->options['coverage-cobertura']) {
+            $this->retrieveAndPrint('cobertura', $suite, '.remote.cobertura.xml');
         }
         if ($this->options['coverage-phpunit']) {
-            $this->retrieveAndPrintPHPUnit($suite);
+            $this->retrieveToTempFileAndPrint('phpunit', $suite, '.remote.coverage-phpunit');
         }
     }
 
-    protected function retrieveAndPrintHtml($suite)
+    protected function retrieveAndPrint(string $type, string $suite, string $extension): void
+    {
+        $destFile = Configuration::outputDir() . $suite . $extension;
+        file_put_contents($destFile, $this->c3Request($type));
+    }
+
+    protected function retrieveToTempFileAndPrint(string $type, string $suite, string $extension): void
     {
         $tempFile = tempnam(sys_get_temp_dir(), 'C3') . '.tar';
-        file_put_contents($tempFile, $this->c3Request('html'));
+        file_put_contents($tempFile, $this->c3Request($type));
 
-        $destDir = Configuration::outputDir() . $suite . '.remote.coverage';
+        $destDir = Configuration::outputDir() . $suite . $extension;
         if (is_dir($destDir)) {
             FileSystem::doEmptyDir($destDir);
         } else {
             mkdir($destDir, 0777, true);
         }
 
-        $phar = new \PharData($tempFile);
-        $phar->extractTo($destDir);
-
-        unlink($tempFile);
-    }
-
-    protected function retrieveAndPrintXml($suite)
-    {
-        $destFile = Configuration::outputDir() . $suite . '.remote.coverage.xml';
-        file_put_contents($destFile, $this->c3Request('clover'));
-    }
-
-    protected function retrieveAndPrintCrap4j($suite)
-    {
-        $destFile = Configuration::outputDir() . $suite . '.remote.crap4j.xml';
-        file_put_contents($destFile, $this->c3Request('crap4j'));
-    }
-
-    protected function retrieveAndPrintPHPUnit($suite)
-    {
-        $tempFile = tempnam(sys_get_temp_dir(), 'C3') . '.tar';
-        file_put_contents($tempFile, $this->c3Request('phpunit'));
-
-        $destDir = Configuration::outputDir() . $suite . '.remote.coverage-phpunit';
-        if (is_dir($destDir)) {
-            FileSystem::doEmptyDir($destDir);
-        } else {
-            mkdir($destDir, 0777, true);
-        }
-
-        $phar = new \PharData($tempFile);
-        $phar->extractTo($destDir);
+        $pharData = new PharData($tempFile);
+        $pharData->extractTo($destDir);
 
         unlink($tempFile);
     }

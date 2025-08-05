@@ -1,7 +1,11 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Command;
 
 use Codeception\Lib\Generator\Test as TestGenerator;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -13,28 +17,23 @@ use Symfony\Component\Console\Output\OutputInterface;
  * * `codecept g:test unit User`
  * * `codecept g:test unit "App\User"`
  */
+#[AsCommand(
+    name: 'generate:test',
+    description: 'Generates empty unit test file in suite'
+)]
 class GenerateTest extends Command
 {
-    use Shared\FileSystem;
-    use Shared\Config;
+    use Shared\FileSystemTrait;
+    use Shared\ConfigTrait;
 
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDefinition(
-            [
-                new InputArgument('suite', InputArgument::REQUIRED, 'suite where tests will be put'),
-                new InputArgument('class', InputArgument::REQUIRED, 'class name'),
-            ]
-        );
-        parent::configure();
+        $this
+            ->addArgument('suite', InputArgument::REQUIRED, 'Suite where tests will be put')
+            ->addArgument('class', InputArgument::REQUIRED, 'Class name');
     }
 
-    public function getDescription()
-    {
-        return 'Generates empty unit test file in suite';
-    }
-
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $suite = $input->getArgument('suite');
         $class = $input->getArgument('class');
@@ -43,19 +42,16 @@ class GenerateTest extends Command
 
         $className = $this->getShortClassName($class);
         $path = $this->createDirectoryFor($config['path'], $class);
+        $filename = $path . $this->completeSuffix($className, 'Test');
 
-        $filename = $this->completeSuffix($className, 'Test');
-        $filename = $path . $filename;
+        $test = new TestGenerator($config, $class);
 
-        $gen = new TestGenerator($config, $class);
-
-        $res = $this->createFile($filename, $gen->produce());
-
+        $res = $this->createFile($filename, $test->produce());
         if (!$res) {
-            $output->writeln("<error>Test $filename already exists</error>");
-            return 1;
+            $output->writeln("<error>Test {$filename} already exists</error>");
+            return Command::FAILURE;
         }
-        $output->writeln("<info>Test was created in $filename</info>");
-        return 0;
+        $output->writeln("<info>Test was created in {$filename}</info>");
+        return Command::SUCCESS;
     }
 }

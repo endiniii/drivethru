@@ -18295,3 +18295,814 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1753352380.702
     'REQUEST_TIME' => 1753352380
 ]
+2025-08-05 09:15:41 [::1][100][85d1q98vm85i6kn99ebcg2itsk][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-05 09:15:41 [::1][100][85d1q98vm85i6kn99ebcg2itsk][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '85d1q98vm85i6kn99ebcg2itsk'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '56898'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=85d1q98vm85i6kn99ebcg2itsk; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754378141.8852
+    'REQUEST_TIME' => 1754378141
+]
+2025-08-05 09:15:49 [::1][100][85d1q98vm85i6kn99ebcg2itsk][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('pemohon')
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('pemohon', 'schema', false)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('pemohon')
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('id')
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('id')
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\PemohonSearch), Array)
+#17 D:\magang imigrasi\drivethru\models\PemohonSearch.php(53): yii\base\Model->validate()
+#18 D:\magang imigrasi\drivethru\controllers\PemohonController.php(41): app\models\PemohonSearch->search(Array)
+#19 [internal function]: app\controllers\PemohonController->actionIndex()
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#26 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('pemohon')
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('pemohon', 'schema', false)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('pemohon')
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('id')
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('id')
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\PemohonSearch), Array)
+#15 D:\magang imigrasi\drivethru\models\PemohonSearch.php(53): yii\base\Model->validate()
+#16 D:\magang imigrasi\drivethru\controllers\PemohonController.php(41): app\models\PemohonSearch->search(Array)
+#17 [internal function]: app\controllers\PemohonController->actionIndex()
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-05 09:15:49 [::1][100][85d1q98vm85i6kn99ebcg2itsk][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '85d1q98vm85i6kn99ebcg2itsk'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '56906'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/pemohon/index'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PATH_INFO' => '/pemohon/index'
+    'PHP_SELF' => '/index.php/pemohon/index'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=85d1q98vm85i6kn99ebcg2itsk; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754378149.7925
+    'REQUEST_TIME' => 1754378149
+]
+2025-08-05 09:15:53 [::1][100][85d1q98vm85i6kn99ebcg2itsk][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-05 09:15:53 [::1][100][85d1q98vm85i6kn99ebcg2itsk][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '85d1q98vm85i6kn99ebcg2itsk'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '56914'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/pemohon/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=85d1q98vm85i6kn99ebcg2itsk; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754378153.1893
+    'REQUEST_TIME' => 1754378153
+]
+2025-08-05 09:15:54 [::1][100][85d1q98vm85i6kn99ebcg2itsk][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#15 D:\magang imigrasi\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#16 D:\magang imigrasi\drivethru\controllers\PemohonController.php(55): app\controllers\PemohonController->cekrak()
+#17 [internal function]: app\controllers\PemohonController->actionSimpan()
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('simpan', Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/simpan', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#13 D:\magang imigrasi\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#14 D:\magang imigrasi\drivethru\controllers\PemohonController.php(55): app\controllers\PemohonController->cekrak()
+#15 [internal function]: app\controllers\PemohonController->actionSimpan()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('simpan', Array)
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/simpan', Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#22 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-05 09:15:54 [::1][100][85d1q98vm85i6kn99ebcg2itsk][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '85d1q98vm85i6kn99ebcg2itsk'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '56922'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/pemohon/simpan'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PATH_INFO' => '/pemohon/simpan'
+    'PHP_SELF' => '/index.php/pemohon/simpan'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=85d1q98vm85i6kn99ebcg2itsk; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754378154.4613
+    'REQUEST_TIME' => 1754378154
+]
+2025-08-05 09:15:56 [::1][100][85d1q98vm85i6kn99ebcg2itsk][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#15 D:\magang imigrasi\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#16 D:\magang imigrasi\drivethru\controllers\PemohonController.php(270): app\controllers\PemohonController->cekrak()
+#17 [internal function]: app\controllers\PemohonController->actionAmbil()
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('ambil', Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/ambil', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#13 D:\magang imigrasi\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#14 D:\magang imigrasi\drivethru\controllers\PemohonController.php(270): app\controllers\PemohonController->cekrak()
+#15 [internal function]: app\controllers\PemohonController->actionAmbil()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('ambil', Array)
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/ambil', Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#22 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-05 09:15:56 [::1][100][85d1q98vm85i6kn99ebcg2itsk][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '85d1q98vm85i6kn99ebcg2itsk'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '56930'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/pemohon/ambil'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PATH_INFO' => '/pemohon/ambil'
+    'PHP_SELF' => '/index.php/pemohon/ambil'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/pemohon/simpan'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=85d1q98vm85i6kn99ebcg2itsk; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=640011ff0fb89a615b95f7dad9bf6e36c0a79f8c1fa44f96765611815eda544ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22J1SdgC83DYebTAUnlqTAKSIYP6XE1fd9%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754378156.0803
+    'REQUEST_TIME' => 1754378156
+]
+2025-08-05 09:32:16 [::1][100][5vellpqk67e9hfs2m4sseqtp1h][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-05 09:32:16 [::1][100][5vellpqk67e9hfs2m4sseqtp1h][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '5vellpqk67e9hfs2m4sseqtp1h'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'd47ae79a1c2c3021fc1c6c340dbf9d633e15d496578cb29c0f359a39bb005b22a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"vyWPM7XXxHVEIADltH2sdmz6wsm15zBE\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '57091'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=5vellpqk67e9hfs2m4sseqtp1h; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=d47ae79a1c2c3021fc1c6c340dbf9d633e15d496578cb29c0f359a39bb005b22a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22vyWPM7XXxHVEIADltH2sdmz6wsm15zBE%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754379136.4812
+    'REQUEST_TIME' => 1754379136
+]
+2025-08-05 09:37:27 [::1][100][greecb09l5kavqjhudnggk9aje][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-05 09:37:27 [::1][100][greecb09l5kavqjhudnggk9aje][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'greecb09l5kavqjhudnggk9aje'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'ab927bf44d1c619adcbccdab5290a5c3d1240300ddb6fd6706868305a3633f1ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"HdZe-cCF_JVEqbo1xa921_-8cK1Hg_4z\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '57198'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=greecb09l5kavqjhudnggk9aje; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=ab927bf44d1c619adcbccdab5290a5c3d1240300ddb6fd6706868305a3633f1ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22HdZe-cCF_JVEqbo1xa921_-8cK1Hg_4z%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754379447.8574
+    'REQUEST_TIME' => 1754379447
+]

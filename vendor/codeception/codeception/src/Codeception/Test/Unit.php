@@ -1,59 +1,93 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Test;
 
+use AllowDynamicProperties;
 use Codeception\Configuration;
 use Codeception\Exception\ModuleException;
 use Codeception\Lib\Di;
-use Codeception\Lib\Notification;
+use Codeception\Lib\PauseShell;
+use Codeception\Module;
+use Codeception\PHPUnit\TestCase;
+use Codeception\ResultAggregator;
 use Codeception\Scenario;
+use Codeception\Test\Feature\Stub;
 use Codeception\TestInterface;
+use Codeception\Util\Debug;
+use LogicException;
+
+use function lcfirst;
+use function method_exists;
 
 /**
  * Represents tests from PHPUnit compatible format.
  */
-class Unit extends \Codeception\PHPUnit\TestCase implements
+#[AllowDynamicProperties]
+class Unit extends TestCase implements
     Interfaces\Reported,
     Interfaces\Dependent,
     TestInterface
 {
-    use \Codeception\Test\Feature\Stub;
+    use Stub;
 
-    /**
-     * @var Metadata
-     */
-    private $metadata;
+    private ?Metadata $metadata = null;
 
-    public function getMetadata()
+    private ?Scenario $scenario = null;
+
+    public function __clone(): void
     {
-        if (!$this->metadata) {
-            $this->metadata = new Metadata();
-        }
-        return $this->metadata;
+        $this->scenario = $this->scenario instanceof Scenario ? clone $this->scenario : null;
+    }
+
+    public function getMetadata(): Metadata
+    {
+        return $this->metadata ??= new Metadata();
+    }
+
+    public function getScenario(): ?Scenario
+    {
+        return $this->scenario;
+    }
+
+    public function setMetadata(?Metadata $metadata): void
+    {
+        $this->metadata = $metadata;
+    }
+
+    public function getResultAggregator(): ResultAggregator
+    {
+        throw new LogicException('This method should not be called; use TestCaseWrapper instead.');
     }
 
     protected function _setUp()
     {
-        if ($this->getMetadata()->isBlocked()) {
-            if ($this->getMetadata()->getSkip() !== null) {
-                $this->markTestSkipped($this->getMetadata()->getSkip());
+        $metadata = $this->getMetadata();
+        if ($metadata->isBlocked()) {
+            if ($skip = $metadata->getSkip()) {
+                $this->markTestSkipped($skip);
             }
-            if ($this->getMetadata()->getIncomplete() !== null) {
-                $this->markTestIncomplete($this->getMetadata()->getIncomplete());
+            if ($incomplete = $metadata->getIncomplete()) {
+                $this->markTestIncomplete($incomplete);
             }
             return;
         }
 
-        /** @var $di Di  **/
-        $di = $this->getMetadata()->getService('di');
-        $di->set(new Scenario($this));
+        /** @var Di $di */
+        $di = $metadata->getService('di');
 
-        // auto-inject $tester property
-        if (($this->getMetadata()->getCurrent('actor')) && ($property = lcfirst(Configuration::config()['actor_suffix']))) {
-            $this->$property = $di->instantiate($this->getMetadata()->getCurrent('actor'));
+        // Auto-inject $tester property
+        if (
+            ($actor = $this->getMetadata()->getCurrent('actor')) &&
+            ($property = lcfirst((string) Configuration::config()['actor_suffix']))
+        ) {
+            $this->{$property} = $di->instantiate($actor);
         }
 
-        // Auto inject into the _inject method
-        $di->injectDependencies($this); // injecting dependencies
+        $this->scenario = $di->get(Scenario::class);
+        // Auto-inject into the _inject method
+        $di->injectDependencies($this);
         $this->_before();
     }
 
@@ -76,12 +110,7 @@ class Unit extends \Codeception\PHPUnit\TestCase implements
     {
     }
 
-    /**
-     * @param $module
-     * @return \Codeception\Module
-     * @throws ModuleException
-     */
-    public function getModule($module)
+    public function getModule(string $module): Module
     {
         $modules = $this->getMetadata()->getCurrent('modules');
         if (!isset($modules[$module])) {
@@ -91,62 +120,52 @@ class Unit extends \Codeception\PHPUnit\TestCase implements
     }
 
     /**
-     * Returns current values
+     * Starts interactive pause in this test
+     *
+     * @param array<string, mixed> $vars
      */
-    public function getCurrent($current)
+    public function pause(array $vars = []): void
+    {
+        if (!Debug::isEnabled()) {
+            return;
+        }
+        $psy = (new PauseShell())->getShell();
+        $psy->setBoundObject($this);
+        $psy->setScopeVariables($vars);
+        $psy->run();
+    }
+
+    public function getCurrent(?string $current): mixed
     {
         return $this->getMetadata()->getCurrent($current);
     }
 
-    /**
-     * @return array
-     */
-    public function getReportFields()
+    public function getReportFields(): array
     {
         return [
-            'name'    => $this->getName(),
-            'class'   => get_class($this),
-            'file'    => $this->getMetadata()->getFilename()
+            'name'  => $this->getName(false),
+            'class' => self::class,
+            'file'  => $this->getMetadata()->getFilename(),
         ];
     }
 
-    public function fetchDependencies()
+    public function fetchDependencies(): array
     {
-        $names = [];
-        foreach ($this->getMetadata()->getDependencies() as $required) {
-            if ((strpos($required, ':') === false) and method_exists($this, $required)) {
-                $required = get_class($this) . ":$required";
-            }
-            $names[] = $required;
-        }
-        return $names;
+        return array_map(
+            fn($dep): string => !str_contains((string)$dep, ':') && method_exists($this, $dep)
+                ? self::class . ":{$dep}"
+                : $dep,
+            $this->getMetadata()->getDependencies()
+        );
     }
 
-    /**
-     * Reset PHPUnit's dependencies
-     * @return bool
-     */
-    public function handleDependencies()
+    public function getFileName(): string
     {
-        $dependencies = $this->fetchDependencies();
-        if (empty($dependencies)) {
-            return true;
-        }
-        $passed = $this->getTestResultObject()->passed();
-        $dependencyInput = [];
+        return $this->getMetadata()->getFilename();
+    }
 
-        foreach ($dependencies as $dependency) {
-            $dependency = str_replace(':', '::', $dependency); // Codeception => PHPUnit format
-            if (strpos($dependency, '::') === false) {         // check it is method of same class
-                $dependency = get_class($this) . '::' . $dependency;
-            }
-            if (isset($passed[$dependency])) {
-                $dependencyInput[] = $passed[$dependency]['result'];
-            } else {
-                $dependencyInput[] = null;
-            }
-        }
-        $this->setDependencyInput($dependencyInput);
-        return true;
+    public function getSignature(): string
+    {
+        return $this->getName(false);
     }
 }

@@ -7,16 +7,20 @@ use Codeception\Lib\Connector\Yii2\TestMailer;
 use Codeception\Util\Debug;
 use Symfony\Component\BrowserKit\AbstractBrowser as Client;
 use Symfony\Component\BrowserKit\Cookie;
+use Symfony\Component\BrowserKit\CookieJar;
+use Symfony\Component\BrowserKit\History;
 use Symfony\Component\BrowserKit\Response;
 use Yii;
 use yii\base\ExitException;
 use yii\base\Security;
+use yii\base\UserException;
 use yii\mail\MessageInterface;
 use yii\web\Application;
 use yii\web\ErrorHandler;
-use yii\web\HttpException;
+use yii\web\IdentityInterface;
 use yii\web\Request;
 use yii\web\Response as YiiResponse;
+use yii\web\User;
 
 class Yii2 extends Client
 {
@@ -40,7 +44,7 @@ class Yii2 extends Client
     /**
      * Clean the response object by resetting specific properties via its' `clear()` method.
      * This will keep behaviors / event handlers, but could inadvertently leave some changes intact.
-     * @see \Yii\web\Response::clear()
+     * @see \yii\web\Response::clear()
      */
     const CLEAN_CLEAR = 'clear';
 
@@ -81,17 +85,22 @@ class Yii2 extends Client
     /**
      * @var bool whether to close the session in between requests inside a single test, if recreateApplication is set to true
      */
-    public $closeSessionOnRecreateApplication = true;
-
-
-    private $emails = [];
+    public bool $closeSessionOnRecreateApplication = true;
 
     /**
-     * @return \yii\web\Application
-     *
-     * @deprecated since 2.5, will become protected in 3.0. Directly access to \Yii::$app if you need to interact with it.
+     * @var class-string The FQN of the application class to use. In a default Yii setup, should be either `yii\web\Application`
+     *             or `yii\console\Application`
      */
-    public function getApplication()
+    public string|null $applicationClass = null;
+
+
+    private array $emails = [];
+
+    /**
+     * @deprecated since 2.5, will become protected in 3.0. Directly access to \Yii::$app if you need to interact with it.
+     * @internal
+     */
+    public function getApplication(): \yii\base\Application
     {
         if (!isset(Yii::$app)) {
             $this->startApp();
@@ -99,10 +108,7 @@ class Yii2 extends Client
         return Yii::$app;
     }
 
-    /**
-     * @param bool $closeSession
-     */
-    public function resetApplication($closeSession = true)
+    public function resetApplication(bool $closeSession = true): void
     {
         codecept_debug('Destroying application');
         if (true === $closeSession) {
@@ -110,7 +116,7 @@ class Yii2 extends Client
         }
         Yii::$app = null;
         \yii\web\UploadedFile::reset();
-        if (method_exists(\yii\base\Event::className(), 'offAll')) {
+        if (method_exists(\yii\base\Event::class, 'offAll')) {
             \yii\base\Event::offAll();
         }
         Yii::setLogger(null);
@@ -121,14 +127,14 @@ class Yii2 extends Client
     /**
      * Finds and logs in a user
      * @internal
-     * @param $user
      * @throws ConfigurationException
      * @throws \RuntimeException
      */
-    public function findAndLoginUser($user)
+    public function findAndLoginUser(int|string|IdentityInterface $user): void
     {
         $app = $this->getApplication();
-        if (!$app->has('user')) {
+        $userComponent = $app->get('user');
+        if (!$userComponent instanceof User) {
             throw new ConfigurationException('The user component is not configured');
         }
 
@@ -136,25 +142,13 @@ class Yii2 extends Client
             $identity = $user;
         } else {
             // class name implementing IdentityInterface
-            $identityClass = $app->user->identityClass;
+            $identityClass = $userComponent->identityClass;
             $identity = call_user_func([$identityClass, 'findIdentity'], $user);
             if (!isset($identity)) {
                 throw new \RuntimeException('User not found');
             }
         }
-        $app->user->login($identity);
-    }
-
-    /**
-     * Masks a value
-     * @internal
-     * @param string $val
-     * @return string
-     * @see \yii\base\Security::maskToken
-     */
-    public function maskToken($val)
-    {
-        return $this->getApplication()->security->maskToken($val);
+        $userComponent->login($identity);
     }
 
     /**
@@ -163,7 +157,7 @@ class Yii2 extends Client
      * @param string $value The value of the cookie
      * @return string The value to send to the browser
      */
-    public function hashCookieData($name, $value)
+    public function hashCookieData($name, $value): string
     {
         $app = $this->getApplication();
         if (!$app->request->enableCookieValidation) {
@@ -176,7 +170,7 @@ class Yii2 extends Client
      * @internal
      * @return array List of regex patterns for recognized domain names
      */
-    public function getInternalDomains()
+    public function getInternalDomains(): array
     {
         /** @var \yii\web\UrlManager $urlManager */
         $urlManager = $this->getApplication()->urlManager;
@@ -196,9 +190,18 @@ class Yii2 extends Client
      * @internal
      * @return array List of sent emails
      */
-    public function getEmails()
+    public function getEmails(): array
     {
         return $this->emails;
+    }
+
+    /**
+     * Deletes all stored emails.
+     * @internal
+     */
+    public function clearEmails(): void
+    {
+        $this->emails = [];
     }
 
     /**
@@ -215,11 +218,8 @@ class Yii2 extends Client
 
     /**
      * Getting domain regex from rule host template
-     *
-     * @param string $template
-     * @return string
      */
-    private function getDomainRegex($template)
+    private function getDomainRegex(string $template): string
     {
         if (preg_match('#https?://(.*)#', $template, $matches)) {
             $template = $matches[1];
@@ -244,44 +244,45 @@ class Yii2 extends Client
     /**
      * Gets the name of the CSRF param.
      * @internal
-     * @return string
      */
-    public function getCsrfParamName()
+    public function getCsrfParamName(): string
     {
         return $this->getApplication()->request->csrfParam;
     }
 
-    /**
-     * @internal
-     * @param $params
-     * @return mixed
-     */
-    public function createUrl($params)
-    {
-        return is_array($params) ?$this->getApplication()->getUrlManager()->createUrl($params) : $params;
-    }
-
-    public function startApp()
+    public function startApp(?\yii\log\Logger $logger = null): void
     {
         codecept_debug('Starting application');
         $config = require($this->configFile);
         if (!isset($config['class'])) {
-            $config['class'] = 'yii\web\Application';
+            if (null !== $this->applicationClass) {
+                $config['class'] = $this->applicationClass;
+            } else {
+                $config['class'] = 'yii\web\Application';
+            }
+        }
+
+        if (isset($config['container']))
+        {
+            Yii::configure(Yii::$container, $config['container']);
+            unset($config['container']);
         }
 
         $config = $this->mockMailer($config);
-        /** @var \yii\web\Application $app */
+        /** @var \yii\base\Application $app */
         Yii::$app = Yii::createObject($config);
-        Yii::setLogger(new Logger());
+
+        if ($logger !== null) {
+            Yii::setLogger($logger);
+        } else {
+            Yii::setLogger(new Logger());
+        }
     }
 
     /**
-     *
      * @param \Symfony\Component\BrowserKit\Request $request
-     *
-     * @return \Symfony\Component\BrowserKit\Response
      */
-    public function doRequest($request)
+    public function doRequest(object $request): \Symfony\Component\BrowserKit\Response
     {
         $_COOKIE = $request->getCookies();
         $_SERVER = $request->getServer();
@@ -301,8 +302,9 @@ class Yii2 extends Client
         $queryString = parse_url($uri, PHP_URL_QUERY);
         $_SERVER['REQUEST_URI'] = $queryString === null ? $pathString : $pathString . '?' . $queryString;
         $_SERVER['REQUEST_METHOD'] = strtoupper($request->getMethod());
+        $_SERVER['QUERY_STRING'] = (string)$queryString;
 
-        parse_str($queryString, $params);
+        parse_str($queryString ?: '', $params);
         foreach ($params as $k => $v) {
             $_GET[$k] = $v;
         }
@@ -312,6 +314,9 @@ class Yii2 extends Client
         $this->beforeRequest();
 
         $app = $this->getApplication();
+        if (!$app instanceof Application) {
+            throw new ConfigurationException("Application is not a web application");
+        }
 
         // disabling logging. Logs are slowing test execution down
         foreach ($app->log->targets as $target) {
@@ -341,7 +346,7 @@ class Yii2 extends Client
             $app->trigger($app::EVENT_AFTER_REQUEST);
             $response->send();
         } catch (\Exception $e) {
-            if ($e instanceof HttpException) {
+            if ($e instanceof UserException) {
                 // Don't discard output and pass exception handling to Yii to be able
                 // to expect error response codes in tests.
                 $app->errorHandler->discardExistingOutput = false;
@@ -376,14 +381,13 @@ class Yii2 extends Client
 
     /**
      * Encodes the cookies and adds them to the headers.
-     * @param \yii\web\Response $response
      * @throws \yii\base\InvalidConfigException
      */
     protected function encodeCookies(
         YiiResponse $response,
         Request $request,
         Security $security
-    ) {
+    ): void {
         if ($request->enableCookieValidation) {
             $validationKey = $request->cookieValidationKey;
         }
@@ -391,7 +395,8 @@ class Yii2 extends Client
         foreach ($response->getCookies() as $cookie) {
             /** @var \yii\web\Cookie $cookie */
             $value = $cookie->value;
-            if ($cookie->expire != 1 && isset($validationKey)) {
+            // Expire = 1 means we're removing the cookie
+            if ($cookie->expire !== 1 && isset($validationKey)) {
                 $data = version_compare(Yii::getVersion(), '2.0.2', '>')
                     ? [$cookie->name, $cookie->value]
                     : $cookie->value;
@@ -412,10 +417,10 @@ class Yii2 extends Client
 
     /**
      * Replace mailer with in memory mailer
-     * @param array $config Original configuration
-     * @return array New configuration
+     * @param array<string, mixed> $config Original configuration
+     * @return array<string, mixed> New configuration
      */
-    protected function mockMailer(array $config)
+    protected function mockMailer(array $config): array
     {
         // options that make sense for mailer mock
         $allowedOptions = [
@@ -449,7 +454,7 @@ class Yii2 extends Client
         return $config;
     }
 
-    public function restart()
+    public function restart(): void
     {
         parent::restart();
         $this->resetApplication();
@@ -458,9 +463,10 @@ class Yii2 extends Client
     /**
      * Return an assoc array with the client context: cookieJar, history.
      *
-     * @return array
+     * @internal
+     * @return array{ cookieJar: CookieJar, history: History }
      */
-    public function getContext()
+    public function getContext(): array
     {
         return [
             'cookieJar' => $this->cookieJar,
@@ -469,19 +475,11 @@ class Yii2 extends Client
     }
 
     /**
-     * Reset the client context: empty cookieJar and history.
-     */
-    public function removeContext()
-    {
-        parent::restart();
-    }
-
-    /**
      * Set the context, see getContext().
      *
-     * @param array $context
+     * @param array{ cookieJar: CookieJar, history: History } $context
      */
-    public function setContext(array $context)
+    public function setContext(array $context): void
     {
         $this->cookieJar = $context['cookieJar'];
         $this->history = $context['history'];
@@ -491,10 +489,11 @@ class Yii2 extends Client
      * This functions closes the session of the application, if the application exists and has a session.
      * @internal
      */
-    public function closeSession()
+    public function closeSession(): void
     {
-        if (isset(\Yii::$app) && \Yii::$app->has('session', true)) {
-            \Yii::$app->session->close();
+        $app = \Yii::$app;
+        if ($app instanceof \yii\web\Application && $app->has('session', true)) {
+            $app->session->close();
         }
     }
 
@@ -502,7 +501,7 @@ class Yii2 extends Client
      * Resets the applications' response object.
      * The method used depends on the module configuration.
      */
-    protected function resetResponse(Application $app)
+    protected function resetResponse(Application $app): void
     {
         $method = $this->responseCleanMethod;
         // First check the current response object.
@@ -535,7 +534,7 @@ TEXT
         }
     }
 
-    protected function resetRequest(Application $app)
+    protected function resetRequest(Application $app): void
     {
         $method = $this->requestCleanMethod;
         $request = $app->request;
@@ -565,8 +564,8 @@ TEXT
                 $request->setScriptFile(null);
                 $request->setScriptUrl(null);
                 $request->setUrl(null);
-                $request->setPort(null);
-                $request->setSecurePort(null);
+                $request->setPort(0);
+                $request->setSecurePort(0);
                 $request->setAcceptableContentTypes(null);
                 $request->setAcceptableLanguages(null);
 
@@ -579,7 +578,7 @@ TEXT
     /**
      * Called before each request, preparation happens here.
      */
-    protected function beforeRequest()
+    protected function beforeRequest(): void
     {
         if ($this->recreateApplication) {
             $this->resetApplication($this->closeSessionOnRecreateApplication);
@@ -588,6 +587,9 @@ TEXT
 
         $application = $this->getApplication();
 
+        if (!$application instanceof Application) {
+            throw new ConfigurationException('Application must be an instance of web application when doing requests');
+        }
         $this->resetResponse($application);
         $this->resetRequest($application);
 

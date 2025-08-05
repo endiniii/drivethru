@@ -1,5 +1,20 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Util;
+
+use ArrayAccess;
+use Iterator;
+use JsonSerializable;
+use Stringable;
+
+use function array_keys;
+use function call_user_func_array;
+use function count;
+use function is_array;
+use function is_object;
+use function range;
 
 /**
  * Class to represent any type of content.
@@ -15,80 +30,65 @@ namespace Codeception\Util;
  * <?php
  * $user = new Maybe;
  * $user->posts->comments->count();
- * ?>
  * ```
  */
-class Maybe implements \ArrayAccess, \Iterator, \JsonSerializable
+class Maybe implements ArrayAccess, Iterator, JsonSerializable, Stringable
 {
-    protected $position = 0;
-    protected $val = null;
-    protected $assocArray = null;
+    protected int $position = 0;
+    protected mixed $val = null;
+    protected ?bool $assocArray = null;
+    private array $keys = [];
 
-    public function __construct($val = null)
+    public function __construct(mixed $val = null)
+    {
+        $this->set($val);
+    }
+
+    private function set(mixed $val): void
     {
         $this->val = $val;
-        if (is_array($this->val)) {
-            $this->assocArray = $this->isAssocArray($this->val);
+        if (is_array($val)) {
+            $this->assocArray = $this->isAssocArray($val);
+            $this->keys = array_keys($val);
+        } else {
+            $this->assocArray = null;
+            $this->keys = [];
         }
         $this->position = 0;
     }
 
-    private function isAssocArray($arr)
+    private function isAssocArray(array $arr): bool
     {
         return array_keys($arr) !== range(0, count($arr) - 1);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
-        if ($this->val === null) {
-            return "?";
-        }
-        if (is_scalar($this->val)) {
-            return (string)$this->val;
-        }
-
-        if (is_object($this->val) && method_exists($this->val, '__toString')) {
-            return $this->val->__toString();
-        }
-
-        return $this->val;
+        return $this->val === null ? '?' : (string)$this->val;
     }
 
-    public function __get($key)
+    public function __get(string $key): Maybe
     {
-        if ($this->val === null) {
-            return new Maybe();
-        }
-
-        if (is_object($this->val)) {
-            if (isset($this->val->{$key}) || property_exists($this->val, $key)) {
-                return $this->val->{$key};
-            }
-        }
-
-        return $this->val->key;
+        return new self(
+            is_object($this->val)
+                ? ($this->val->{$key} ?? null)
+                : (is_array($this->val) ? ($this->val[$key] ?? null) : null)
+        );
     }
 
-    public function __set($key, $val)
+    public function __set(string $key, $val)
     {
-        if ($this->val === null) {
-            return;
-        }
-
         if (is_object($this->val)) {
             $this->val->{$key} = $val;
-            return;
+        } elseif (is_array($this->val)) {
+            $this->val[$key] = $val;
+            $this->set($this->val);
         }
-
-        $this->val->key = $val;
     }
 
-    public function __call($method, $args)
+    public function __call(string $method, array $args)
     {
-        if ($this->val === null) {
-            return new Maybe();
-        }
-        return call_user_func_array([$this->val, $method], $args);
+        return $this->val === null ? new self() : call_user_func_array([$this->val, $method], $args);
     }
 
     public function __clone()
@@ -98,148 +98,127 @@ class Maybe implements \ArrayAccess, \Iterator, \JsonSerializable
         }
     }
 
-    public function __unset($key)
+    public function __unset(string $key)
     {
         if (is_object($this->val)) {
-            if (isset($this->val->{$key}) || property_exists($this->val, $key)) {
-                unset($this->val->{$key});
-                return;
-            }
+            unset($this->val->{$key});
+        } elseif (is_array($this->val)) {
+            unset($this->val[$key]);
+            $this->set($this->val);
         }
     }
 
-    public function offsetExists($offset)
+    public function offsetExists(mixed $offset): bool
     {
-        if (is_array($this->val) || ($this->val instanceof \ArrayAccess)) {
-            return isset($this->val[$offset]);
-        }
-        return false;
+        return (is_array($this->val) || $this->val instanceof ArrayAccess) && isset($this->val[$offset]);
     }
 
-    public function offsetGet($offset)
+    public function offsetGet(mixed $offset): Maybe
     {
-        if (is_array($this->val) || ($this->val instanceof \ArrayAccess)) {
-            return $this->val[$offset];
-        }
-        return new Maybe();
+        return new self(
+            (is_array($this->val) || $this->val instanceof ArrayAccess) ? ($this->val[$offset] ?? null) : null
+        );
     }
 
-    public function offsetSet($offset, $value)
+    public function offsetSet(mixed $offset, mixed $value): void
     {
-        if (is_array($this->val) || ($this->val instanceof \ArrayAccess)) {
+        if (is_array($this->val) || $this->val instanceof ArrayAccess) {
             $this->val[$offset] = $value;
-        }
-    }
-
-    public function offsetUnset($offset)
-    {
-        if (is_array($this->val) || ($this->val instanceof \ArrayAccess)) {
-            unset($this->val[$offset]);
-        }
-    }
-
-    public function __value()
-    {
-        $val = $this->val;
-        if (is_array($val)) {
-            foreach ($val as $k => $v) {
-                if ($v instanceof self) {
-                    $v = $v->__value();
-                }
-                $val[$k] = $v;
+            if (is_array($this->val)) {
+                $this->set($this->val);
             }
         }
-        return $val;
+    }
+
+    public function offsetUnset(mixed $offset): void
+    {
+        if (is_array($this->val) || $this->val instanceof ArrayAccess) {
+            unset($this->val[$offset]);
+            if (is_array($this->val)) {
+                $this->set($this->val);
+            }
+        }
+    }
+
+    public function value()
+    {
+        if (!is_array($this->val)) {
+            return $this->val;
+        }
+
+        return array_map(fn($v) => $v instanceof self ? $v->value() : $v, $this->val);
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
      * Return the current element
-     * @link http://php.net/manual/en/iterator.current.php
+     * @link https://php.net/manual/en/iterator.current.php
      * @return mixed Can return any type.
      */
-    public function current()
+    public function current(): mixed
     {
         if (!is_array($this->val)) {
             return null;
         }
-        if ($this->assocArray) {
-            $keys = array_keys($this->val);
-            return $this->val[$keys[$this->position]];
-        }
-
-        return $this->val[$this->position];
+        $key = $this->assocArray === true ? ($this->keys[$this->position] ?? null) : $this->position;
+        return $this->val[$key] ?? null;
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
      * Move forward to next element
-     * @link http://php.net/manual/en/iterator.next.php
+     * @link https://php.net/manual/en/iterator.next.php
      * @return void Any returned value is ignored.
      */
-    public function next()
+    public function next(): void
     {
         ++$this->position;
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
      * Return the key of the current element
-     * @link http://php.net/manual/en/iterator.key.php
-     * @return mixed scalar on success, or null on failure.
+     * @link https://php.net/manual/en/iterator.key.php
+     * @return int|string|null scalar on success, or null on failure.
      */
-    public function key()
+    public function key(): mixed
     {
-        if ($this->assocArray) {
-            $keys = array_keys($this->val);
-            return $keys[$this->position];
-        }
-
-        return $this->position;
+        return $this->assocArray === true ? ($this->keys[$this->position] ?? null) : $this->position;
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
      * Checks if current position is valid
-     * @link http://php.net/manual/en/iterator.valid.php
-     * @return boolean The return value will be casted to boolean and then evaluated.
+     * @link https://php.net/manual/en/iterator.valid.php
+     * @return bool The return value will be casted to boolean and then evaluated.
      * Returns true on success or false on failure.
      */
-    public function valid()
+    public function valid(): bool
     {
         if (!is_array($this->val)) {
-            return null;
+            return false;
         }
-        if ($this->assocArray) {
-            $keys = array_keys($this->val);
-            return isset($keys[$this->position]);
-        }
-
-        return isset($this->val[$this->position]);
+        return $this->assocArray === true ? isset($this->keys[$this->position]) : isset($this->val[$this->position]);
     }
 
     /**
-     * (PHP 5 &gt;= 5.0.0)<br/>
      * Rewind the Iterator to the first element
-     * @link http://php.net/manual/en/iterator.rewind.php
+     * @link https://php.net/manual/en/iterator.rewind.php
      * @return void Any returned value is ignored.
      */
-    public function rewind()
+    public function rewind(): void
     {
         if (is_array($this->val)) {
             $this->assocArray = $this->isAssocArray($this->val);
+            $this->keys = array_keys($this->val);
         }
         $this->position = 0;
     }
 
     /**
-     * (PHP 5 >= 5.4.0)
-     * Serializes the object to a value that can be serialized natively by json_encode().
-     * @link http://docs.php.net/manual/en/jsonserializable.jsonserialize.php
-     * @return mixed Returns data which can be serialized by json_encode(), which is a value of any type other than a resource.
+     * Specify data which should be serialized to JSON
+     * @link https://php.net/manual/en/jsonserializable.jsonserialize.php
+     * @return mixed data which can be serialized by json_encode(),
+     * which is a value of any type other than a resource.
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
-        return $this->__value();
+        return $this->value();
     }
 }

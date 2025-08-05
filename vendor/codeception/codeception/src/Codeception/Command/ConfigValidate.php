@@ -1,12 +1,20 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Command;
 
 use Codeception\Configuration;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+
+use function codecept_data_dir;
+use function codecept_output_dir;
+use function codecept_root_dir;
 
 /**
  * Validates and prints Codeception config.
@@ -29,52 +37,46 @@ use Symfony\Component\Console\Output\OutputInterface;
  * * `codecept config:validate -o "reporters: report: \Custom\Reporter" --report`: use custom reporter
  *
  */
+#[AsCommand(
+    name: 'config:validate',
+    description: 'Validates and prints Codeception config'
+)]
 class ConfigValidate extends Command
 {
-    use Shared\Config;
-    use Shared\Style;
+    use Shared\ConfigTrait;
+    use Shared\StyleTrait;
 
-    protected function configure()
+    protected function configure(): void
     {
-        $this->setDefinition(
-            [
-                new InputArgument('suite', InputArgument::OPTIONAL, 'to show suite configuration'),
-                new InputOption('config', 'c', InputOption::VALUE_OPTIONAL, 'Use custom path for config'),
-                new InputOption('override', 'o', InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Override config values'),
-            ]
-        );
-        parent::configure();
+        $this
+            ->addArgument('suite', InputArgument::OPTIONAL, 'To show suite configuration')
+            ->addOption('config', 'c', InputOption::VALUE_OPTIONAL, 'Use custom path for config')
+            ->addOption('override', 'o', InputOption::VALUE_IS_ARRAY | InputOption::VALUE_REQUIRED, 'Override config values');
     }
 
-    public function getDescription()
-    {
-        return 'Validates and prints config to screen';
-    }
-
-
-    public function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $this->addStyles($output);
 
         if ($suite = $input->getArgument('suite')) {
-            $output->write("Validating <bold>$suite</bold> config... ");
+            $output->write("Validating <bold>{$suite}</bold> config... ");
             $config = $this->getSuiteConfig($suite);
             $output->writeln("Ok");
             $output->writeln("------------------------------\n");
-            $output->writeln("<info>$suite Suite Config</info>:\n");
+            $output->writeln("<info>{$suite} Suite Config</info>:\n");
             $output->writeln($this->formatOutput($config));
-
-            return 0;
+            return Command::SUCCESS;
         }
 
         $output->write("Validating global config... ");
         $config = $this->getGlobalConfig();
         $output->writeln($input->getOption('override'));
-        if (count($input->getOption('override'))) {
+        if (!empty($input->getOption('override'))) {
             $config = $this->overrideConfig($input->getOption('override'));
         }
-        $suites = Configuration::suites();
+
         $output->writeln("Ok");
+        $suites = Configuration::suites();
 
         $output->writeln("------------------------------\n");
         $output->writeln("<info>Codeception Config</info>:\n");
@@ -89,19 +91,19 @@ class ConfigValidate extends Command
         $output->writeln("<info>Available suites</info>: " . implode(', ', $suites));
 
         foreach ($suites as $suite) {
-            $output->write("Validating suite <bold>$suite</bold>... ");
+            $output->write("Validating suite <bold>{$suite}</bold>... ");
             $this->getSuiteConfig($suite);
             $output->writeln('Ok');
         }
 
-
         $output->writeln("Execute <info>codecept config:validate [<suite>]</info> to see config for a suite");
-        return 0;
+
+        return Command::SUCCESS;
     }
 
-    protected function formatOutput($config)
+    protected function formatOutput($config): ?string
     {
         $output = print_r($config, true);
-        return preg_replace('~\[(.*?)\] =>~', "<fg=yellow>$1</fg=yellow> =>", $output);
+        return preg_replace('#\[(.*?)] =>#', "<fg=yellow>$1</fg=yellow> =>", $output);
     }
 }

@@ -1,55 +1,54 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception;
 
+use Closure;
 use Codeception\Lib\Actor\Shared\Comment;
-use Codeception\Step\Executor;
 use Codeception\Lib\Actor\Shared\Pause;
+use Codeception\Step\Executor;
+use RuntimeException;
 
 abstract class Actor
 {
     use Comment;
     use Pause;
 
-    /**
-     * @var \Codeception\Scenario
-     */
-    protected $scenario;
-
-    public function __construct(Scenario $scenario)
+    public function __construct(protected readonly Scenario $scenario)
     {
-        $this->scenario = $scenario;
     }
 
-    /**
-     * @return \Codeception\Scenario
-     */
-    protected function getScenario()
+    protected function getScenario(): Scenario
     {
         return $this->scenario;
     }
 
-    public function wantToTest($text)
+    /**
+     * This method is used by Cept format to add description to test output
+     *
+     * It can be used by Cest format too.
+     * It doesn't do anything when called, but it is parsed by Parser before execution
+     *
+     * @see \Codeception\Lib\Parser::parseFeature
+     */
+    public function wantTo(string $text): void
     {
-        $this->wantTo('test ' . $text);
     }
 
-    public function wantTo($text)
+    public function wantToTest(string $text): void
     {
-        $this->scenario->setFeature($text);
     }
 
-    public function __call($method, $arguments)
+    public function __call(string $method, array $arguments): mixed
     {
-        $class = get_class($this);
-        throw new \RuntimeException("Call to undefined method $class::$method");
+        throw new RuntimeException(sprintf('Call to undefined method %s::%s', static::class, $method));
     }
-    
+
     /**
      * Lazy-execution given anonymous function
-     * @param $callable \Closure
-     * @return $this
      */
-    public function execute($callable)
+    public function execute(Closure $callable): self
     {
         $this->scenario->addStep(new Executor($callable, []));
         $callable();

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codeception;
 
 use Codeception\Exception\ContentNotFound;
@@ -11,74 +13,83 @@ abstract class Snapshot
 {
     use Asserts;
 
-    protected $fileName;
+    protected ?string $fileName = null;
 
+    /**
+     * @var string|false
+     */
     protected $dataSet;
 
-    protected $refresh;
+    protected ?bool $refresh = null;
+
+    protected bool $showDiff = false;
+
+    protected bool $saveAsJson = true;
+
+    protected string $extension = 'json';
 
     /**
      * Should return data from current test run
-     *
-     * @return mixed
      */
-    abstract protected function fetchData();
+    abstract protected function fetchData(): array|string|false;
 
     /**
      * Performs assertion on saved data set against current dataset.
      * Can be overridden to implement custom assertion
-     *
-     * @param $data
      */
-    protected function assertData($data)
+    protected function assertData(mixed $data): void
     {
-        $this->assertEquals($this->dataSet, $data, 'Snapshot doesn\'t match real data');
+        $this->assertSame($this->dataSet, $data, "Snapshot doesn't match real data");
     }
 
     /**
      * Loads data set from file.
      */
-    protected function load()
+    protected function load(): void
     {
-        if (!file_exists($this->getFileName())) {
+        $path = $this->getFileName();
+        if (!is_file($path)) {
             return;
         }
-        $this->dataSet = json_decode(file_get_contents($this->getFileName()));
-        if (!$this->dataSet) {
-            throw new ContentNotFound("Loaded snapshot is empty");
+
+        $contents     = file_get_contents($path);
+        $this->dataSet = $this->saveAsJson
+            ? json_decode($contents, false, 512, JSON_THROW_ON_ERROR)
+            : $contents;
+
+        if ($this->dataSet === null || $this->dataSet === false) {
+            throw new ContentNotFound('Loaded snapshot is empty');
         }
     }
 
     /**
      * Saves data set to file
      */
-    protected function save()
+    protected function save(): void
     {
-        file_put_contents($this->getFileName(), json_encode($this->dataSet));
+        $contents = $this->saveAsJson
+            ? json_encode($this->dataSet, JSON_THROW_ON_ERROR)
+            : $this->dataSet;
+
+        file_put_contents($this->getFileName(), $contents);
     }
 
     /**
      * If no filename is defined, generates one from class name
-     *
-     * @return string
      */
-    protected function getFileName()
+    protected function getFileName(): string
     {
-        if (!$this->fileName) {
-            $this->fileName = preg_replace('/\W/', '.', get_class($this)) . '.json';
-        }
-        return codecept_data_dir() . $this->fileName;
+        return codecept_data_dir() . ($this->fileName ??= preg_replace('#\W#', '.', static::class) . '.' . $this->extension);
     }
 
     /**
      * Performs assertion for data sets
      */
-    public function assert()
+    public function assert(): void
     {
-        // fetch data
         $data = $this->fetchData();
         if (!$data) {
-            throw new ContentNotFound("Fetched snapshot is empty.");
+            throw new ContentNotFound('Fetched snapshot is empty.');
         }
 
         $this->load();
@@ -96,11 +107,9 @@ abstract class Snapshot
         } catch (AssertionFailedError $exception) {
             $this->printDebug('Snapshot assertion failed');
 
-            if (!is_bool($this->refresh)) {
-                $confirm = Debug::confirm('Should we update snapshot with fresh data? (Y/n) ');
-            } else {
-                $confirm = $this->refresh;
-            }
+            $confirm = is_bool($this->refresh)
+                ? $this->refresh
+                : Debug::confirm('Should we update snapshot with fresh data? (Y/n) ');
 
             if ($confirm) {
                 $this->dataSet = $data;
@@ -109,22 +118,52 @@ abstract class Snapshot
                 return;
             }
 
+            if ($this->showDiff) {
+                throw $exception;
+            }
+
             $this->fail($exception->getMessage());
         }
     }
 
     /**
      * Force update snapshot data.
-     *
-     * @param bool $refresh
      */
-    public function shouldRefreshSnapshot($refresh = true)
+    public function shouldRefreshSnapshot(bool $refresh = true): void
     {
         $this->refresh = $refresh;
     }
 
-    private function printDebug($message)
+    /**
+     * Show detailed diff if snapshot test fails
+     */
+    public function shouldShowDiffOnFail(bool $showDiff = true): void
     {
-        Debug::debug(get_class($this) . ': ' . $message);
+        $this->showDiff = $showDiff;
+    }
+
+    /**
+     * json_encode/json_decode the snapshot data on storing/reading.
+     */
+    public function shouldSaveAsJson(bool $saveAsJson = true): void
+    {
+        $this->saveAsJson = $saveAsJson;
+    }
+
+    /**
+     * Set the snapshot file extension.
+     * By default it will be stored as `.json`.
+     *
+     * The file extension will not perform any formatting in the data,
+     * it is only used as the snapshot file extension.
+     */
+    public function setSnapshotFileExtension(string $fileExtension = 'json'): void
+    {
+        $this->extension = $fileExtension;
+    }
+
+    private function printDebug(string $message): void
+    {
+        Debug::debug(static::class . ': ' . $message);
     }
 }

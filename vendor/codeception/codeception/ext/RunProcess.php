@@ -1,20 +1,29 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Codeception\Extension;
 
+use BadMethodCallException;
 use Codeception\Events;
 use Codeception\Exception\ExtensionException;
 use Codeception\Extension;
 use Symfony\Component\Process\Process;
 
+use function array_reverse;
+use function class_exists;
+use function is_int;
+use function sleep;
+
 /**
  * Extension to start and stop processes per suite.
- * Can be used to start/stop selenium server, chromedriver, phantomjs, mailcatcher, etc.
+ * Can be used to start/stop selenium server, chromedriver, [MailCatcher](https://mailcatcher.me/), etc.
+ * Each command is executed only once, at the beginning of the test suite. To execute a command before each test, see [Before/After Attributes](https://codeception.com/docs/AdvancedUsage#BeforeAfter-Attributes).
  *
- * Can be configured in suite config:
+ * Can be enabled in suite config:
  *
  * ```yaml
- * # acceptance.suite.yml
+ * # Acceptance.suite.yml
  * extensions:
  *     enabled:
  *         - Codeception\Extension\RunProcess:
@@ -24,8 +33,7 @@ use Symfony\Component\Process\Process;
  * Multiple parameters can be passed as array:
  *
  * ```yaml
- * # acceptance.suite.yml
- *
+ * # Acceptance.suite.yml
  * extensions:
  *     enabled:
  *         - Codeception\Extension\RunProcess:
@@ -35,8 +43,7 @@ use Symfony\Component\Process\Process;
  *
  * In the end of a suite all launched processes will be stopped.
  *
- * To wait for the process to be launched use `sleep` option.
- * In this case you need configuration to be specified as object:
+ * To wait for the process to be launched use `sleep` option. In this case you need configuration to be specified as object:
  *
  * ```yaml
  * extensions:
@@ -47,27 +54,36 @@ use Symfony\Component\Process\Process;
  *             sleep: 5 # wait 5 seconds for processes to boot
  * ```
  *
- * HINT: you can use different configurations per environment.
+ * HINT: You can use different configurations per environment.
  */
 class RunProcess extends Extension
 {
-    protected $config = ['sleep' => 0];
+    /**
+     * @var array<int|string, mixed>
+     */
+    protected array $config = ['sleep' => 0];
 
-    protected static $events = [
+    /**
+     * @var array<string, string>
+     */
+    protected static array $events = [
         Events::SUITE_BEFORE => 'runProcess',
         Events::SUITE_AFTER => 'stopProcess'
     ];
 
-    private $processes = [];
+    /**
+     * @var Process[]
+     */
+    private array $processes = [];
 
-    public function _initialize()
+    public function _initialize(): void
     {
-        if (!class_exists('Symfony\Component\Process\Process')) {
+        if (!class_exists(Process::class)) {
             throw new ExtensionException($this, 'symfony/process package is required');
         }
     }
 
-    public function runProcess()
+    public function runProcess(): void
     {
         $this->processes = [];
         foreach ($this->config as $key => $command) {
@@ -77,15 +93,10 @@ class RunProcess extends Extension
             if (!is_int($key)) {
                 continue; // configuration options
             }
-            if (method_exists(Process::class, 'fromShellCommandline')) {
-                //Symfony 4.2+
-                $process = Process::fromShellCommandline($command, $this->getRootDir(), null, null, null);
-            } else {
-                $process = new Process($command, $this->getRootDir(), null, null, null);
-            }
+            $process = Process::fromShellCommandline($command, $this->getRootDir(), null, null, null);
             $process->start();
             $this->processes[] = $process;
-            $this->output->debug('[RunProcess] Starting '.$command);
+            $this->output->debug('[RunProcess] Starting ' . $command);
         }
         sleep($this->config['sleep']);
     }
@@ -95,10 +106,10 @@ class RunProcess extends Extension
         $this->stopProcess();
     }
 
-    public function stopProcess()
+    public function stopProcess(): void
     {
         foreach (array_reverse($this->processes) as $process) {
-            /** @var $process Process  **/
+            /** @var Process $process */
             if (!$process->isRunning()) {
                 continue;
             }
@@ -106,5 +117,27 @@ class RunProcess extends Extension
             $process->stop();
         }
         $this->processes = [];
+    }
+
+    /**
+     * Disable the deserialization of the class to prevent attacker executing
+     * code by leveraging the __destruct method.
+     *
+     * @see https://owasp.org/www-community/vulnerabilities/PHP_Object_Injection
+     */
+    public function __sleep()
+    {
+        throw new BadMethodCallException('Cannot serialize ' . self::class);
+    }
+
+    /**
+     * Disable the deserialization of the class to prevent attacker executing
+     * code by leveraging the __destruct method.
+     *
+     * @see https://owasp.org/www-community/vulnerabilities/PHP_Object_Injection
+     */
+    public function __wakeup()
+    {
+        throw new BadMethodCallException('Cannot unserialize ' . self::class);
     }
 }

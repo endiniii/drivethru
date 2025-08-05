@@ -1,29 +1,31 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Lib\Actor\Shared;
+
+use Codeception\Scenario;
 
 trait Comment
 {
-    /**
-     * @return \Codeception\Scenario
-     */
-    abstract protected function getScenario();
+    abstract protected function getScenario(): Scenario;
 
-    public function expectTo($prediction)
+    public function expectTo(string $prediction): self
     {
         return $this->comment('I expect to ' . $prediction);
     }
 
-    public function expect($prediction)
+    public function expect(string $prediction): self
     {
         return $this->comment('I expect ' . $prediction);
     }
 
-    public function amGoingTo($argumentation)
+    public function amGoingTo(string $argumentation): self
     {
         return $this->comment('I am going to ' . $argumentation);
     }
 
-    public function am($role)
+    public function am(string $role): self
     {
         $role = trim($role);
 
@@ -34,12 +36,12 @@ trait Comment
         return $this->comment('As a ' . $role);
     }
 
-    public function lookForwardTo($achieveValue)
+    public function lookForwardTo(string $achieveValue): self
     {
         return $this->comment('So that I ' . $achieveValue);
     }
 
-    public function comment($description)
+    public function comment(string $description): self
     {
         $this->getScenario()->comment($description);
         return $this;

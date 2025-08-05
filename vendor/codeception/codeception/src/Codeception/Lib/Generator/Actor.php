@@ -1,15 +1,31 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Codeception\Lib\Generator;
 
 use Codeception\Configuration;
 use Codeception\Lib\Di;
+use Codeception\Lib\Friend;
+use Codeception\Lib\Generator\Shared\Classname;
 use Codeception\Lib\ModuleContainer;
+use Codeception\Util\ReflectionHelper;
 use Codeception\Util\Template;
+use ReflectionClass;
+use ReflectionMethod;
 
 class Actor
 {
-    protected $template = <<<EOF
+    use Classname;
+
+    public Di $di;
+
+    public ModuleContainer $moduleContainer;
+
+    protected string $template = <<<EOF
 <?php
+
+declare(strict_types=1);
 {{hasNamespace}}
 
 /**
@@ -22,22 +38,21 @@ class {{actor}} extends \Codeception\Actor
 {
     use _generated\{{actor}}Actions;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * Define custom actions here
+     */
 }
 
 EOF;
 
-    protected $inheritedMethodTemplate = ' * @method {{return}} {{method}}({{params}})';
+    protected string $inheritedMethodTemplate = ' * @method {{return}} {{method}}({{params}})';
 
-    protected $settings;
-    protected $modules;
-    protected $actions;
+    protected array $modules = [];
 
-    public function __construct($settings)
+    protected array $actions = [];
+
+    public function __construct(protected array $settings)
     {
-        $this->settings = $settings;
         $this->di = new Di();
         $this->moduleContainer = new ModuleContainer($this->di, $settings);
 
@@ -50,27 +65,23 @@ EOF;
         $this->actions = $this->moduleContainer->getActions();
     }
 
-    public function produce()
+    public function produce(): string
     {
-        $namespace = rtrim($this->settings['namespace'], '\\');
-
-        if (!isset($this->settings['actor']) && isset($this->settings['class_name'])) {
-            $this->settings['actor'] = $this->settings['class_name'];
-        }
+        $namespace = trim($this->supportNamespace(), '\\');
 
         return (new Template($this->template))
-            ->place('hasNamespace', $namespace ? "namespace $namespace;" : '')
+            ->place('hasNamespace', $namespace !== '' ? "\nnamespace {$namespace};" : '')
             ->place('actor', $this->settings['actor'])
             ->place('inheritedMethods', $this->prependAbstractActorDocBlocks())
             ->produce();
     }
 
-    protected function prependAbstractActorDocBlocks()
+    protected function prependAbstractActorDocBlocks(): string
     {
         $inherited = [];
 
-        $class = new \ReflectionClass('\Codeception\\Actor');
-        $methods = $class->getMethods(\ReflectionMethod::IS_PUBLIC);
+        $class = new ReflectionClass(\Codeception\Actor::class);
+        $methods = $class->getMethods(ReflectionMethod::IS_PUBLIC);
 
         foreach ($methods as $method) {
             if ($method->name == '__call') {
@@ -81,7 +92,7 @@ EOF;
             } // skipping magic
             $returnType = 'void';
             if ($method->name == 'haveFriend') {
-                $returnType = '\Codeception\Lib\Friend';
+                $returnType = Friend::class;
             }
             $params = $this->getParamsString($method);
             $inherited[] = (new Template($this->inheritedMethodTemplate))
@@ -94,19 +105,15 @@ EOF;
         return implode("\n", $inherited);
     }
 
-    /**
-     * @param \ReflectionMethod $refMethod
-     * @return array
-     */
-    protected function getParamsString(\ReflectionMethod $refMethod)
+    protected function getParamsString(ReflectionMethod $refMethod): string
     {
         $params = [];
         foreach ($refMethod->getParameters() as $param) {
             if ($param->isOptional()) {
-                $params[] = '$' . $param->name . ' = '.$this->getDefaultValue($param);
+                $params[] = '$' . $param->name . ' = ' . ReflectionHelper::getDefaultValue($param);
             } else {
                 $params[] = '$' . $param->name;
-            };
+            }
         }
         return implode(', ', $params);
     }
@@ -116,82 +123,11 @@ EOF;
         return $this->settings['actor'];
     }
 
-    public function getModules()
+    /**
+     * @return string[]
+     */
+    public function getModules(): array
     {
         return array_keys($this->modules);
-    }
-
-    /**
-     * Infer default parameter from the reflection object and format it as PHP (code) string
-     *
-     * @param \ReflectionParameter $param
-     *
-     * @return string
-     */
-    private function getDefaultValue(\ReflectionParameter $param)
-    {
-        if ($param->isDefaultValueAvailable()) {
-            if (method_exists($param, 'isDefaultValueConstant') && $param->isDefaultValueConstant()) {
-                $constName = $param->getDefaultValueConstantName();
-                if (false !== strpos($constName, '::')) {
-                    list($class, $const) = explode('::', $constName);
-                    if (in_array($class, ['self', 'static'])) {
-                        $constName = $param->getDeclaringClass()->getName().'::'.$const;
-                    }
-                }
-
-                return $constName;
-            }
-
-            return $this->phpEncodeValue($param->getDefaultValue());
-        }
-
-        return 'null';
-    }
-
-    /**
-     * PHP encoded a value
-     *
-     * @param mixed $value
-     *
-     * @return string
-     */
-    private function phpEncodeValue($value)
-    {
-        if (is_array($value)) {
-            return $this->phpEncodeArray($value);
-        }
-
-        if (is_string($value)) {
-            return json_encode($value);
-        }
-
-        return var_export($value, true);
-    }
-
-    /**
-     * Recursively PHP encode an array
-     *
-     * @param array $array
-     *
-     * @return string
-     */
-    private function phpEncodeArray(array $array)
-    {
-        $isPlainArray = function (array $value) {
-            return ((count($value) === 0)
-                || (
-                    (array_keys($value) === range(0, count($value) - 1))
-                    && (0 === count(array_filter(array_keys($value), 'is_string'))))
-            );
-        };
-
-        if ($isPlainArray($array)) {
-            return '['.implode(', ', array_map([$this, 'phpEncodeValue'], $array)).']';
-        }
-
-        return '['.implode(', ', array_map(function ($key) use ($array) {
-            return $this->phpEncodeValue($key).' => '.$this->phpEncodeValue($array[$key]);
-        }, array_keys($array))).']';
     }
 }

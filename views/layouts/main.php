@@ -1,8 +1,5 @@
 <?php
 
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use app\widgets\Alert;
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
@@ -19,10 +16,21 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="<?=Yii::getAlias("@web/images/")?>logo-cilacap.png">
+    <link rel="shortcut icon" href="<?= Yii::getAlias("@web/images/") ?>logo-cilacap.png">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <style>
+        /* Tambahan untuk dropdown submenu */
+        .dropdown-submenu {
+            position: relative;
+        }
+        .dropdown-submenu > .dropdown-menu {
+            top: 0;
+            left: 100%;
+            margin-top: -1px;
+        }
+    </style>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -36,36 +44,25 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
+
+    // Menu bawaan Yii (kecuali Kirim Berkas)
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Simpan Berkas', 'url' => ['/pemohon/simpan']],
             ['label' => 'Ambil Berkas', 'url' => ['/pemohon/ambil']],
-            //['label' => 'Slot Rak', 'url' => ['/rak/index']],
             ['label' => 'Pemohon', 'url' => ['/pemohon/index']],
-            //['label' => 'List', 'url' => ['/scan-drive-thru/index']],
-            //['label' => 'Settings', 'url' => ['/settings']],
             [
                 'label' => 'Settings',
                 'items' => [
-                     ['label' => 'List Antrian', 'url' => ['/scan-drive-thru/index']],
-                     '<li class="divider"></li>',
-                     '<li class="dropdown-header">Loker</li>',
-                     ['label' => 'Kapasitas', 'url' => ['/settings/index']],
-                     ['label' => 'Slot', 'url' => ['/rak/index']],
+                    ['label' => 'List Antrian', 'url' => ['/scan-drive-thru/index']],
+                    '<li class="divider"></li>',
+                    '<li class="dropdown-header">Loker</li>',
+                    ['label' => 'Kapasitas', 'url' => ['/settings/index']],
+                    ['label' => 'Slot', 'url' => ['/rak/index']],
                 ],
             ],
-            [
-                'label' => 'SMS',
-                'items' => [
-                     ['label' => 'Inbox', 'url' => ['/sms/inbox']],
-                     ['label' => 'Outbox', 'url' => ['/sms/outbox']],
-                     ['label' => 'Sent Items', 'url' => ['/sms/sent-items']],
-                     ['label' => 'Send SMS', 'url' => ['/sms/send-sms']],
-                ],
-            ],
-            //['label' => 'Contact', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
@@ -80,6 +77,57 @@ AppAsset::register($this);
             )
         ],
     ]);
+
+    // Kirim Berkas: manual HTML
+    ?>
+   <!-- Kirim Berkas: manual HTML -->
+<ul class="nav navbar-nav navbar-right">
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kirim Berkas <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+
+            <!-- Cilacap -->
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Cilacap</a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/cilacap-mpp']) ?>">MPP</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/sms/cilacap-ngapak']) ?>">Ngapak</a></li>
+                </ul>
+            </li>
+
+            <!-- Banyumas -->
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Banyumas</a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?= \yii\helpers\Url::to(['/sms/banyumas-mpp']) ?>">MPP</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/sms/banyumas-ngapak']) ?>">Ngapak</a></li>
+                </ul>
+            </li>
+
+            <!-- Purbalingga -->
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Purbalingga</a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?= \yii\helpers\Url::to(['/sms/purbalingga-mpp']) ?>">MPP</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/sms/purbalingga-ngapak']) ?>">Ngapak</a></li>
+                </ul>
+            </li>
+
+            <!-- Kebumen -->
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="#">Kebumen</a>
+                <ul class="dropdown-menu">
+                    <li><a href="<?= \yii\helpers\Url::to(['/sms/kebumen-mpp']) ?>">MPP</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/sms/kebumen-ngapak']) ?>">Ngapak</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </li>
+</ul>
+
+
+    <?php
     NavBar::end();
     ?>
 
@@ -95,8 +143,7 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
         <p class="pull-left">&copy; Kantor Imigrasi Kelas II TPI Cilacap <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= 'v1.0' ?></p>
+        <p class="pull-right">v1.0</p>
     </div>
 </footer>
 

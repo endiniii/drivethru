@@ -8,6 +8,9 @@ use app\models\PemohonSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 
 /**
  * PemohonController implements the CRUD actions for Pemohon model.
@@ -483,4 +486,61 @@ class PemohonController extends Controller
 
         return $rak_id;
     }
+public function actionCreateCilacap()
+{
+    $model = new Pemohon();
+
+    if ($model->load(Yii::$app->request->post())) {
+        // Atur default lokasi dan sub_lokasi khusus untuk menu Cilacap
+        $model->lokasi = 'Cilacap';
+        $model->sub_lokasi = 'MPP'; // atau nilai default lainnya
+
+        if ($model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+    }
+
+    return $this->render('create_cilacap', [
+        'model' => $model,
+    ]);
+}
+
+
+
+public function actionExportCilacapMpp()
+{
+    $searchModel = new PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+    $dataProvider->query->andWhere([
+        'tempatlahir' => 'cilacap',
+    ]);
+
+    $models = $dataProvider->getModels();
+
+    $spreadsheet = new Spreadsheet();
+    $sheet = $spreadsheet->getActiveSheet();
+    $sheet->fromArray(['No', 'No Permohonan', 'Nama', 'Tempat Lahir', 'Sub Lokasi', 'Tanggal'], null, 'A1');
+
+    $row = 2;
+    foreach ($models as $index => $model) {
+        $sheet->fromArray([
+            $index + 1,
+            $model->no_permohonan,
+            $model->nama_lengkap,
+            $model->lokasi,
+            $model->sub_lokasi,
+            $model->created_at,
+        ], null, 'A' . $row++);
+    }
+
+    $filename = 'cilacap-mpp.xlsx';
+    header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    header("Content-Disposition: attachment; filename=\"$filename\"");
+    header('Cache-Control: max-age=0');
+
+    $writer = new Xlsx($spreadsheet);
+    $writer->save('php://output');
+    exit;
+}
+   
 }

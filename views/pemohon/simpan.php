@@ -88,7 +88,7 @@ if($tersimpan == true)
 
     echo $form2->field($model2, 'nopermohonan')->hiddenInput()->label(false);
     echo $form2->field($model2, 'sendsms')->hiddenInput()->label(false);
-    echo $form2->field($model2, 'sendsms')->checkbox();
+    // echo $form2->field($model2, 'sendsms')->checkbox();
 
     echo Html::submitButton('<i class="glyphicon glyphicon-floppy-save"></i> Simpan ke Loker', ['class' => 'btn btn-success', 'data' => [
                 'confirm' => 'Are you sure you want to save this item?',

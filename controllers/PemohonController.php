@@ -197,7 +197,20 @@ class PemohonController extends Controller
                     /***** /END SENDING SMS ******/
 
 
-                    return $this->redirect(['simpan']);
+                    if ($model->save()) {
+                        $rakStore = new \app\models\RakStore();
+                        $rakStore->idpemohon = $model->id;
+                        $rakStore->idrak = $model->koderak;
+                        $rakStore->save();
+
+                        // Buat URL WhatsApp Web
+                       $waNumber = preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $model->notelepon));
+                        $waMessage = urlencode("Yth. Bapak/Ibu, Paspor an. {$model->nama} telah selesai & dapat diambil di Imigrasi Cilacap pada jam kerja. Terima kasih.");
+                        $waUrl = "https://wa.me/$waNumber?text=$waMessage";
+
+                        return Yii::$app->response->redirect($waUrl);
+                    }
+
                 }
                 else
                 {

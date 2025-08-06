@@ -19106,3 +19106,2498 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1754379447.8574
     'REQUEST_TIME' => 1754379447
 ]
+2025-08-05 10:14:53 [::1][-][92ed00011r0udqqc240fvun16p][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "site/login/index". in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/login/inde...', Array)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Halaman tidak ditemukan. in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2025-08-05 10:14:53 [::1][-][92ed00011r0udqqc240fvun16p][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    '_csrf' => 'ab927bf44d1c619adcbccdab5290a5c3d1240300ddb6fd6706868305a3633f1ba:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"HdZe-cCF_JVEqbo1xa921_-8cK1Hg_4z\";}'
+    'PHPSESSID' => '92ed00011r0udqqc240fvun16p'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '58089'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/site/login/index'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PATH_INFO' => '/site/login/index'
+    'PHP_SELF' => '/index.php/site/login/index'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf=ab927bf44d1c619adcbccdab5290a5c3d1240300ddb6fd6706868305a3633f1ba%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22HdZe-cCF_JVEqbo1xa921_-8cK1Hg_4z%22%3B%7D; PHPSESSID=92ed00011r0udqqc240fvun16p'
+    'REQUEST_TIME_FLOAT' => 1754381693.5716
+    'REQUEST_TIME' => 1754381693
+]
+2025-08-05 10:15:05 [::1][100][4cnhuft48k0kptvse0m51hm7vk][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [2002] No connection could be made because the target machine actively refused it in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 2002
+    [2] => No connection could be made because the target machine actively refused it
+)
+
+2025-08-05 10:15:01 [::1][100][4cnhuft48k0kptvse0m51hm7vk][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '4cnhuft48k0kptvse0m51hm7vk'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '3336538db0f91d588ffe1de7b850c9742bccf0c2d29a739d2f7e6e1806064ad1a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"_9WjUcHYcId_eTW2-AMOj7O3eouSRVND\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '58101'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=4cnhuft48k0kptvse0m51hm7vk; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=3336538db0f91d588ffe1de7b850c9742bccf0c2d29a739d2f7e6e1806064ad1a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22_9WjUcHYcId_eTW2-AMOj7O3eouSRVND%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754381701.2635
+    'REQUEST_TIME' => 1754381701
+]
+2025-08-06 02:51:52 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 02:51:52 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '52013'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754441512.1125
+    'REQUEST_TIME' => 1754441512
+]
+2025-08-06 03:28:39 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:28:39 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '52919'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754443719.2182
+    'REQUEST_TIME' => 1754443719
+]
+2025-08-06 03:28:41 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:28:41 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '52928'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754443721.0962
+    'REQUEST_TIME' => 1754443721
+]
+2025-08-06 03:28:42 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 D:\magang imigrasi\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 D:\magang imigrasi\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 D:\magang imigrasi\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:28:42 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'D:\\magang imigrasi\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '52937'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8080'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'D:\\magang imigrasi\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8080'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8080/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754443722.0583
+    'REQUEST_TIME' => 1754443722
+]
+2025-08-06 03:31:53 [-][-][-][error][yii\console\UnknownCommandException] yii\base\InvalidRouteException: Unable to resolve the request "servephp". in C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php:564
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\console\Application.php(180): yii\base\Module->runAction('servephp', Array)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('servephp', Array)
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\console\Application->handleRequest(Object(yii\console\Request))
+#3 C:\laragon\www\drivethru\yii(20): yii\base\Application->run()
+#4 {main}
+
+Next yii\console\UnknownCommandException: Unknown command "servephp". in C:\laragon\www\drivethru\vendor\yiisoft\yii2\console\Application.php:183
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\console\Application.php(147): yii\console\Application->runAction('servephp', Array)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\console\Application->handleRequest(Object(yii\console\Request))
+#2 C:\laragon\www\drivethru\yii(20): yii\base\Application->run()
+#3 {main}
+2025-08-06 03:31:53 [-][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData'
+    'APPDATA' => 'C:\\Users\\user\\AppData\\Roaming'
+    'CommonProgramFiles' => 'C:\\Program Files\\Common Files'
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files'
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files'
+    'COMPUTERNAME' => 'LAPTOP-BMELD4TC'
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe'
+    'DriverData' => 'C:\\Windows\\System32\\Drivers\\DriverData'
+    'HOMEDRIVE' => 'C:'
+    'HOMEPATH' => '\\Users\\user'
+    'LOCALAPPDATA' => 'C:\\Users\\user\\AppData\\Local'
+    'LOGONSERVER' => '\\\\LAPTOP-BMELD4TC'
+    'NUMBER_OF_PROCESSORS' => '12'
+    'OneDrive' => 'C:\\Users\\user\\OneDrive'
+    'OS' => 'Windows_NT'
+    'Path' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;D:\\Project_PEMMOB\\flutter\\bin;D:\\Praktikum\\flutter\\bin;C:\\Users\\user\\Tugas2Praktikum2024\\lib\\ui;C:\\Program Files\\nodejs\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Scripts;C:\\Program Files\\MATLAB\\R2024b\\bin;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;D:\\flutter\\bin;C:\\Users\\user\\Tugas2Praktikum2024\\lib\\ui;C:\\Users\\user\\AppData\\Roaming\\npm;C:\\Users\\user\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.CPL'
+    'PROCESSOR_ARCHITECTURE' => 'AMD64'
+    'PROCESSOR_IDENTIFIER' => 'AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD'
+    'PROCESSOR_LEVEL' => '25'
+    'PROCESSOR_REVISION' => '7502'
+    'ProgramData' => 'C:\\ProgramData'
+    'ProgramFiles' => 'C:\\Program Files'
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)'
+    'ProgramW6432' => 'C:\\Program Files'
+    'PSModulePath' => 'C:\\Users\\user\\Documents\\WindowsPowerShell\\Modules;C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules'
+    'PUBLIC' => 'C:\\Users\\Public'
+    'SESSIONNAME' => 'Console'
+    'SystemDrive' => 'C:'
+    'SystemRoot' => 'C:\\Windows'
+    'TEMP' => 'C:\\Users\\user\\AppData\\Local\\Temp'
+    'TMP' => 'C:\\Users\\user\\AppData\\Local\\Temp'
+    'USERDOMAIN' => 'LAPTOP-BMELD4TC'
+    'USERDOMAIN_ROAMINGPROFILE' => 'LAPTOP-BMELD4TC'
+    'USERNAME' => 'user'
+    'USERPROFILE' => 'C:\\Users\\user'
+    'VBOX_MSI_INSTALL_PATH' => 'C:\\Program Files\\Oracle\\VirtualBox\\'
+    'windir' => 'C:\\Windows'
+    'WSLENV' => 'WT_SESSION:WT_PROFILE_ID:'
+    'WT_PROFILE_ID' => '{61c54bbd-c2c6-5271-96e7-009a87ff44bf}'
+    'WT_SESSION' => '932d1f02-5ecd-4017-a3cc-ad3d8a27ab00'
+    'PHP_SELF' => 'yii'
+    'SCRIPT_NAME' => 'yii'
+    'SCRIPT_FILENAME' => 'yii'
+    'PATH_TRANSLATED' => 'yii'
+    'DOCUMENT_ROOT' => ''
+    'REQUEST_TIME_FLOAT' => 1754443913.0206
+    'REQUEST_TIME' => 1754443913
+    'argv' => [
+        0 => 'yii'
+        1 => 'servephp'
+        2 => 'yii'
+        3 => 'serve'
+    ]
+    'argc' => 4
+]
+2025-08-06 03:34:09 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:34:08 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53066'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8888'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8888'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754444048.9474
+    'REQUEST_TIME' => 1754444048
+]
+2025-08-06 03:35:44 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:35:44 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53092'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8888'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8888'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754444144.4658
+    'REQUEST_TIME' => 1754444144
+]
+2025-08-06 03:44:28 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:44:28 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53186'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754444668.6858
+    'REQUEST_TIME' => 1754444668
+]
+2025-08-06 03:46:33 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:46:33 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53257'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754444793.8234
+    'REQUEST_TIME' => 1754444793
+]
+2025-08-06 03:51:14 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 03:51:14 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53378'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'none'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445074.1604
+    'REQUEST_TIME' => 1754445074
+]
+2025-08-06 04:04:48 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:04:48 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53625'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8081/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445888.6756
+    'REQUEST_TIME' => 1754445888
+]
+2025-08-06 04:04:49 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:04:49 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53633'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8081/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445889.7424
+    'REQUEST_TIME' => 1754445889
+]
+2025-08-06 04:04:50 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:04:50 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53641'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8081/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445890.1649
+    'REQUEST_TIME' => 1754445890
+]
+2025-08-06 04:04:53 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#15 C:\laragon\www\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#16 C:\laragon\www\drivethru\controllers\PemohonController.php(55): app\controllers\PemohonController->cekrak()
+#17 [internal function]: app\controllers\PemohonController->actionSimpan()
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('simpan', Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/simpan', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#13 C:\laragon\www\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#14 C:\laragon\www\drivethru\controllers\PemohonController.php(55): app\controllers\PemohonController->cekrak()
+#15 [internal function]: app\controllers\PemohonController->actionSimpan()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('simpan', Array)
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/simpan', Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#22 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:04:53 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53649'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/pemohon/simpan'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PATH_INFO' => '/pemohon/simpan'
+    'PHP_SELF' => '/index.php/pemohon/simpan'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8081/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445893.3319
+    'REQUEST_TIME' => 1754445893
+]
+2025-08-06 04:04:54 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#15 C:\laragon\www\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#16 C:\laragon\www\drivethru\controllers\PemohonController.php(270): app\controllers\PemohonController->cekrak()
+#17 [internal function]: app\controllers\PemohonController->actionAmbil()
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('ambil', Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/ambil', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('settings')
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('settings', 'schema', false)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('settings')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(469): yii\db\ActiveRecord::getTableSchema()
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(185): yii\db\ActiveRecord::primaryKey()
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(110): yii\db\ActiveRecord::findByCondition(1)
+#13 C:\laragon\www\drivethru\controllers\PemohonController.php(444): yii\db\BaseActiveRecord::findOne(1)
+#14 C:\laragon\www\drivethru\controllers\PemohonController.php(270): app\controllers\PemohonController->cekrak()
+#15 [internal function]: app\controllers\PemohonController->actionAmbil()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('ambil', Array)
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/ambil', Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#21 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#22 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:04:54 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53657'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/pemohon/ambil'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PATH_INFO' => '/pemohon/ambil'
+    'PHP_SELF' => '/index.php/pemohon/ambil'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8081/pemohon/simpan'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445894.3275
+    'REQUEST_TIME' => 1754445894
+]
+2025-08-06 04:04:57 [::1][100][svkhfiscfvboshatd0nsiqnp4d][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('pemohon')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('pemohon', 'schema', false)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('pemohon')
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('id')
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('id')
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\PemohonSearch), Array)
+#17 C:\laragon\www\drivethru\models\PemohonSearch.php(53): yii\base\Model->validate()
+#18 C:\laragon\www\drivethru\controllers\PemohonController.php(41): app\models\PemohonSearch->search(Array)
+#19 [internal function]: app\controllers\PemohonController->actionIndex()
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#26 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('pemohon')
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('pemohon', 'schema', false)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('pemohon')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('id')
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('id')
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\PemohonSearch), Array)
+#15 C:\laragon\www\drivethru\models\PemohonSearch.php(53): yii\base\Model->validate()
+#16 C:\laragon\www\drivethru\controllers\PemohonController.php(41): app\models\PemohonSearch->search(Array)
+#17 [internal function]: app\controllers\PemohonController->actionIndex()
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('pemohon/index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:04:57 [::1][100][svkhfiscfvboshatd0nsiqnp4d][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => 'svkhfiscfvboshatd0nsiqnp4d'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => 'b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"OJundHIlee-VolY7ySymabIvPdYWGO-K\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53665'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/pemohon/index'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PATH_INFO' => '/pemohon/index'
+    'PHP_SELF' => '/index.php/pemohon/index'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8081/pemohon/ambil'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=svkhfiscfvboshatd0nsiqnp4d; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=b0e273b2342c2c773d4ab6c012a5ef9dcc755a6d8d7200f43d422a005861d875a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22OJundHIlee-VolY7ySymabIvPdYWGO-K%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445897.214
+    'REQUEST_TIME' => 1754445897
+]
+2025-08-06 04:05:23 [::1][100][0rpjtsgd4ujhiojh112b49o1f3][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:05:23 [::1][100][0rpjtsgd4ujhiojh112b49o1f3][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '0rpjtsgd4ujhiojh112b49o1f3'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '4a46498517aeffc801d0a40710c4307a327dc4ce6f3bbd4e7834d18f09e4aa50a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Q9g_F_6F1GhRYvoLPzXLY-3j6ktET4oi\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53692'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_REFERER' => 'http://localhost:8081/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=0rpjtsgd4ujhiojh112b49o1f3; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=4a46498517aeffc801d0a40710c4307a327dc4ce6f3bbd4e7834d18f09e4aa50a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Q9g_F_6F1GhRYvoLPzXLY-3j6ktET4oi%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445923.5062
+    'REQUEST_TIME' => 1754445923
+]
+2025-08-06 04:05:26 [::1][100][0rpjtsgd4ujhiojh112b49o1f3][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'drivethru', Object(SensitiveParameterValue), NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#9 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#17 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#19 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#20 [internal function]: app\controllers\SiteController->actionIndex()
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#25 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#27 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1045] Access denied for user 'drivethru'@'localhost' (using password: YES) in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(402): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(426): yii\db\mysql\QueryBuilder->supportsFractionalSeconds()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\QueryBuilder.php(59): yii\db\mysql\QueryBuilder->defaultTimeTypeMap()
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\BaseObject.php(112): yii\db\mysql\QueryBuilder->init()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\QueryBuilder.php(116): yii\base\BaseObject->__construct(Array)
+#7 [internal function]: yii\db\QueryBuilder->__construct(Object(yii\db\Connection), Array)
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(417): ReflectionClass->newInstanceArgs(Array)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\di\Container.php(176): yii\di\Container->build('yii\\db\\mysql\\Qu...', Array, Array)
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\BaseYii.php(354): yii\di\Container->get('yii\\db\\mysql\\Qu...', Array)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(261): yii\BaseYii::createObject('yii\\db\\mysql\\Qu...', Array)
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(247): yii\db\mysql\Schema->createQueryBuilder()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(884): yii\db\Schema->getQueryBuilder()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(349): yii\db\Connection->getQueryBuilder()
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Query.php(287): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveQuery.php(325): yii\db\Query->one(NULL)
+#17 C:\laragon\www\drivethru\controllers\SiteController.php(77): yii\db\ActiveQuery->one()
+#18 [internal function]: app\controllers\SiteController->actionIndex()
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('index', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('site/index', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#25 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1045
+    [2] => Access denied for user 'drivethru'@'localhost' (using password: YES)
+)
+
+2025-08-06 04:05:26 [::1][100][0rpjtsgd4ujhiojh112b49o1f3][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '0rpjtsgd4ujhiojh112b49o1f3'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '4a46498517aeffc801d0a40710c4307a327dc4ce6f3bbd4e7834d18f09e4aa50a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"Q9g_F_6F1GhRYvoLPzXLY-3j6ktET4oi\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'DOCUMENT_ROOT' => 'C:\\laragon\\www\\drivethru\\web'
+    'REMOTE_ADDR' => '::1'
+    'REMOTE_PORT' => '53700'
+    'SERVER_SOFTWARE' => 'PHP 8.2.12 Development Server'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_PORT' => '8081'
+    'REQUEST_URI' => '/'
+    'REQUEST_METHOD' => 'GET'
+    'SCRIPT_NAME' => '/index.php'
+    'SCRIPT_FILENAME' => 'C:\\laragon\\www\\drivethru\\web\\index.php'
+    'PHP_SELF' => '/index.php'
+    'HTTP_HOST' => 'localhost:8081'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost:8081/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=0rpjtsgd4ujhiojh112b49o1f3; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=4a46498517aeffc801d0a40710c4307a327dc4ce6f3bbd4e7834d18f09e4aa50a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22Q9g_F_6F1GhRYvoLPzXLY-3j6ktET4oi%22%3B%7D'
+    'REQUEST_TIME_FLOAT' => 1754445926.0496
+    'REQUEST_TIME' => 1754445926
+]
+2025-08-06 02:27:35 [::1][100][6v8na1lukbde1h2613uc9c617q][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1049] Unknown database 'sms_cilacap' in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('inbox')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('inbox', 'schema', false)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('inbox')
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('ID')
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('ID')
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\InboxSearch), Array)
+#17 C:\laragon\www\drivethru\models\InboxSearch.php(53): yii\base\Model->validate()
+#18 C:\laragon\www\drivethru\controllers\SmsController.php(38): app\models\InboxSearch->search(Array)
+#19 [internal function]: app\controllers\SmsController->actionInbox()
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('inbox', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('sms/inbox', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#26 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1049] Unknown database 'sms_cilacap' in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('inbox')
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('inbox', 'schema', false)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('inbox')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('ID')
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('ID')
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\InboxSearch), Array)
+#15 C:\laragon\www\drivethru\models\InboxSearch.php(53): yii\base\Model->validate()
+#16 C:\laragon\www\drivethru\controllers\SmsController.php(38): app\models\InboxSearch->search(Array)
+#17 [internal function]: app\controllers\SmsController->actionInbox()
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('inbox', Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('sms/inbox', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1049
+    [2] => Unknown database 'sms_cilacap'
+)
+
+2025-08-06 02:27:35 [::1][100][6v8na1lukbde1h2613uc9c617q][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '6v8na1lukbde1h2613uc9c617q'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '85af4c5e2127d8d86845c79fefe763b0bc511dd32b09d3468a8c03d5dc01ef76a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eX-VPGPeZMzoyaJKjLRd1y1VpGW4uNBQ\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/drivethru/web/pemohon/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=6v8na1lukbde1h2613uc9c617q; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=85af4c5e2127d8d86845c79fefe763b0bc511dd32b09d3468a8c03d5dc01ef76a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eX-VPGPeZMzoyaJKjLRd1y1VpGW4uNBQ%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;D:\\Project_PEMMOB\\flutter\\bin;D:\\Praktikum\\flutter\\bin;C:\\Users\\user\\Tugas2Praktikum2024\\lib\\ui;C:\\Program Files\\nodejs\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Scripts;C:\\Program Files\\MATLAB\\R2024b\\bin;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;D:\\flutter\\bin;C:\\Users\\user\\Tugas2Praktikum2024\\lib\\ui;C:\\Users\\user\\AppData\\Roaming\\npm;C:\\Users\\user\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/laragon/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/laragon/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'C:/laragon/www/drivethru/web/index.php'
+    'REMOTE_PORT' => '54074'
+    'REDIRECT_URL' => '/drivethru/web/sms/inbox'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/drivethru/web/sms/inbox'
+    'SCRIPT_NAME' => '/drivethru/web/index.php'
+    'PHP_SELF' => '/drivethru/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1754447255.7914
+    'REQUEST_TIME' => 1754447255
+]
+2025-08-06 02:27:42 [::1][100][6v8na1lukbde1h2613uc9c617q][error][yii\db\Exception] PDOException: SQLSTATE[HY000] [1049] Unknown database 'sms_cilacap' in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:722
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(722): PDO->__construct('mysql:host=loca...', 'root', '', NULL)
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(637): yii\db\Connection->createPdoInstance()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('outbox')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('outbox', 'schema', false)
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('outbox')
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('Class')
+#15 C:\laragon\www\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('Class')
+#16 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\OutboxSearch), Array)
+#17 C:\laragon\www\drivethru\models\OutboxSearch.php(53): yii\base\Model->validate()
+#18 C:\laragon\www\drivethru\controllers\SmsController.php(51): app\models\OutboxSearch->search(Array)
+#19 [internal function]: app\controllers\SmsController->actionOutbox()
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('outbox', Array)
+#23 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('sms/outbox', Array)
+#24 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#25 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#26 {main}
+
+Next yii\db\Exception: SQLSTATE[HY000] [1049] Unknown database 'sms_cilacap' in C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php:648
+Stack trace:
+#0 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1067): yii\db\Connection->open()
+#1 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Connection.php(1054): yii\db\Connection->getMasterPdo()
+#2 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(261): yii\db\Connection->getSlavePdo(true)
+#3 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(1181): yii\db\Command->prepare(true)
+#4 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Command.php(417): yii\db\Command->queryInternal('fetchAll', NULL)
+#5 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(366): yii\db\Command->queryAll()
+#6 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\mysql\Schema.php(134): yii\db\mysql\Schema->findColumns(Object(yii\db\TableSchema))
+#7 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(756): yii\db\mysql\Schema->loadTableSchema('outbox')
+#8 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\Schema.php(192): yii\db\Schema->getTableMetadata('outbox', 'schema', false)
+#9 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(445): yii\db\Schema->getTableSchema('outbox')
+#10 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\ActiveRecord.php(479): yii\db\ActiveRecord::getTableSchema()
+#11 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(498): yii\db\ActiveRecord->attributes()
+#12 C:\laragon\www\drivethru\vendor\yiisoft\yii2\db\BaseActiveRecord.php(289): yii\db\BaseActiveRecord->hasAttribute('Class')
+#13 C:\laragon\www\drivethru\vendor\yiisoft\yii2\validators\Validator.php(257): yii\db\BaseActiveRecord->__get('Class')
+#14 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Model.php(389): yii\validators\Validator->validateAttributes(Object(app\models\OutboxSearch), Array)
+#15 C:\laragon\www\drivethru\models\OutboxSearch.php(53): yii\base\Model->validate()
+#16 C:\laragon\www\drivethru\controllers\SmsController.php(51): app\models\OutboxSearch->search(Array)
+#17 [internal function]: app\controllers\SmsController->actionOutbox()
+#18 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\InlineAction.php(60): call_user_func_array(Array, Array)
+#19 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Controller.php(184): yii\base\InlineAction->runWithParams(Array)
+#20 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Module.php(555): yii\base\Controller->runAction('outbox', Array)
+#21 C:\laragon\www\drivethru\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('sms/outbox', Array)
+#22 C:\laragon\www\drivethru\vendor\yiisoft\yii2\base\Application.php(387): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 C:\laragon\www\drivethru\web\index.php(12): yii\base\Application->run()
+#24 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 1049
+    [2] => Unknown database 'sms_cilacap'
+)
+
+2025-08-06 02:27:42 [::1][100][6v8na1lukbde1h2613uc9c617q][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '6v8na1lukbde1h2613uc9c617q'
+    '_identity' => '72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a:2:{i:0;s:9:\"_identity\";i:1;s:28:\"[\"100\",\"test100key\",2592000]\";}'
+    '_csrf' => '85af4c5e2127d8d86845c79fefe763b0bc511dd32b09d3468a8c03d5dc01ef76a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eX-VPGPeZMzoyaJKjLRd1y1VpGW4uNBQ\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => '100'
+    '__authKey' => 'test100key'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_SEC_CH_UA' => '\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Google Chrome\";v=\"138\"'
+    'HTTP_SEC_CH_UA_MOBILE' => '?0'
+    'HTTP_SEC_CH_UA_PLATFORM' => '\"Windows\"'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7'
+    'HTTP_SEC_FETCH_SITE' => 'same-origin'
+    'HTTP_SEC_FETCH_MODE' => 'navigate'
+    'HTTP_SEC_FETCH_USER' => '?1'
+    'HTTP_SEC_FETCH_DEST' => 'document'
+    'HTTP_REFERER' => 'http://localhost/drivethru/web/sms/inbox'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br, zstd'
+    'HTTP_ACCEPT_LANGUAGE' => 'id,en-US;q=0.9,en;q=0.8'
+    'HTTP_COOKIE' => 'PHPSESSID=6v8na1lukbde1h2613uc9c617q; _identity=72626809267cecdfe13412a208ae6330eab271b4d5127a877b3d31d7d93d9708a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A28%3A%22%5B%22100%22%2C%22test100key%22%2C2592000%5D%22%3B%7D; _csrf=85af4c5e2127d8d86845c79fefe763b0bc511dd32b09d3468a8c03d5dc01ef76a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eX-VPGPeZMzoyaJKjLRd1y1VpGW4uNBQ%22%3B%7D'
+    'PATH' => 'C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;C:\\Program Files\\Git\\cmd;D:\\Project_PEMMOB\\flutter\\bin;D:\\Praktikum\\flutter\\bin;C:\\Users\\user\\Tugas2Praktikum2024\\lib\\ui;C:\\Program Files\\nodejs\\;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\Program Files\\MySQL\\MySQL Server 8.0\\bin;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Python313\\Scripts;C:\\Program Files\\MATLAB\\R2024b\\bin;C:\\Users\\user\\AppData\\Local\\Programs\\Python\\Launcher\\;C:\\Users\\user\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\user\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;D:\\flutter\\bin;C:\\Users\\user\\Tugas2Praktikum2024\\lib\\ui;C:\\Users\\user\\AppData\\Roaming\\npm;C:\\Users\\user\\AppData\\Roaming\\Composer\\vendor\\bin'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/laragon/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/laragon/www'
+    'SERVER_ADMIN' => 'admin@example.com'
+    'SCRIPT_FILENAME' => 'C:/laragon/www/drivethru/web/index.php'
+    'REMOTE_PORT' => '54089'
+    'REDIRECT_URL' => '/drivethru/web/sms/outbox'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/drivethru/web/sms/outbox'
+    'SCRIPT_NAME' => '/drivethru/web/index.php'
+    'PHP_SELF' => '/drivethru/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1754447262.6419
+    'REQUEST_TIME' => 1754447262
+]

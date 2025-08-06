@@ -205,7 +205,19 @@ class PemohonController extends Controller
 
                         // Buat URL WhatsApp Web
                        $waNumber = preg_replace('/^0/', '62', preg_replace('/[^0-9]/', '', $model->notelepon));
-                        $waMessage = urlencode("Yth. Bapak/Ibu, Paspor an. {$model->nama} telah selesai & dapat diambil di Imigrasi Cilacap pada jam kerja. Terima kasih.");
+                        $waMessage = urlencode(
+                            "Hallo *{$model->nama}* dengan No Permohonan *{$model->nopermohonan}*\n\n" .
+                            "Saat ini paspor anda sudah *SELESAI*.\n" .
+                            "Silahkan datang ke Kantor Imigrasi Kelas I TPI Cilacap untuk pengambilan Paspor.\n\n" .
+                            "Jam Operasional:\n" .
+                            "- Senin - Kamis: 08.00 s/d 15.00 WIB\n" .
+                            "- Jumat        : 08.00 s/d 15.30 WIB\n\n" .
+                            "Persyaratan:\n" .
+                            "1. Lampirkan Pengantar Pengambilan paspor, bukti pendaftaran M-Paspor, dan kartu identitas (KTP) \n" .
+                            "2. Pengambilan dapat diwakilkan oleh orang lain dalam satu kartu keluarga yang sama dengan membawa KTP pemohon dan pengambil\n" .
+                            "3. Surat Kuasa bermaterai apabila dikuasakan\n\n" .
+                            "Untuk informasi lebih lanjut silahkan hubungi Call Center: 081217000900"
+                        );
                         $waUrl = "https://wa.me/$waNumber?text=$waMessage";
 
                         return Yii::$app->response->redirect($waUrl);

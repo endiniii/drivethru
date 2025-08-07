@@ -505,7 +505,149 @@ public function actionCreateCilacap()
     ]);
 }
 
+public function actionCilacapMpp()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
+
+public function actionCilacapNgapak()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
+
+public function actionBanyumasMpp()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
+
+public function actionBanyumasNgapak()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
+
+public function actionPurbalinggaMpp()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
+
+public function actionPurbalinggaNgapak()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
+
+public function actionKebumenMpp()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
+
+public function actionKebumenNgapak()
+{
+    $searchModel = new \app\models\PemohonSearch();
+    $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+    $nopermohonan = Yii::$app->request->get('nopermohonan');
+    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+
+    $tersimpan = false;
+
+    return $this->render('simpan', [
+        'searchModel' => $searchModel,
+        'dataProvider' => $dataProvider,
+        'model' => $model,
+        'tersimpan' => $tersimpan,
+    ]);
+}
 
 public function actionExportCilacapMpp()
 {

@@ -86,21 +86,12 @@ AppAsset::register($this);
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Kirim Berkas <b class="caret"></b></a>
         <ul class="dropdown-menu">
 
-            <!-- Cilacap -->
-            <li class="dropdown-submenu">
-                <a tabindex="-1" href="#">Cilacap</a>
-                <ul class="dropdown-menu">
-                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/cilacap-mpp']) ?>">MPP</a></li>
-                    <li><a href="<?= \yii\helpers\Url::to(['/sms/cilacap-ngapak']) ?>">Ngapak</a></li>
-                </ul>
-            </li>
-
             <!-- Banyumas -->
             <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Banyumas</a>
                 <ul class="dropdown-menu">
-                    <li><a href="<?= \yii\helpers\Url::to(['/sms/banyumas-mpp']) ?>">MPP</a></li>
-                    <li><a href="<?= \yii\helpers\Url::to(['/sms/banyumas-ngapak']) ?>">Ngapak</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/banyumas-mpp']) ?>">MPP</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/banyumas-ngapak']) ?>">Ngapak</a></li>
                 </ul>
             </li>
 
@@ -108,8 +99,8 @@ AppAsset::register($this);
             <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Purbalingga</a>
                 <ul class="dropdown-menu">
-                    <li><a href="<?= \yii\helpers\Url::to(['/sms/purbalingga-mpp']) ?>">MPP</a></li>
-                    <li><a href="<?= \yii\helpers\Url::to(['/sms/purbalingga-ngapak']) ?>">Ngapak</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/purbalingga-mpp']) ?>">MPP</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/purbalingga-ngapak']) ?>">Ngapak</a></li>
                 </ul>
             </li>
 
@@ -117,9 +108,14 @@ AppAsset::register($this);
             <li class="dropdown-submenu">
                 <a tabindex="-1" href="#">Kebumen</a>
                 <ul class="dropdown-menu">
-                    <li><a href="<?= \yii\helpers\Url::to(['/sms/kebumen-mpp']) ?>">MPP</a></li>
-                    <li><a href="<?= \yii\helpers\Url::to(['/sms/kebumen-ngapak']) ?>">Ngapak</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/kebumen-mpp']) ?>">MPP</a></li>
+                    <li><a href="<?= \yii\helpers\Url::to(['/pemohon/kebumen-ngapak']) ?>">Ngapak</a></li>
                 </ul>
+            </li>
+
+             <!-- Eazy Passport -->
+            <li class="dropdown-submenu">
+                <a tabindex="-1" href="<?= \yii\helpers\Url::to(['/pemohon/eazy-passport']) ?>">EAZY PASSPORT</a>
             </li>
 
         </ul>

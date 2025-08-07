@@ -115,7 +115,7 @@ AppAsset::register($this);
 
              <!-- Eazy Passport -->
             <li class="dropdown-submenu">
-                <a tabindex="-1" href="<?= \yii\helpers\Url::to(['/pemohon/eazy-passport']) ?>">EAZY PASSPORT</a>
+                <a tabindex="-1" href="<?= \yii\helpers\Url::to(['/eazy-pasport/index']) ?>">EAZY PASSPORT</a>
             </li>
 
         </ul>

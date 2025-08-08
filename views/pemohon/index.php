@@ -52,29 +52,29 @@ $this->params['breadcrumbs'][] = $this->title;
             //'tanggalambil',
             // 'smsgateway',
             [
-                'attribute' => 'smsgateway',
-                'format' => 'raw',
-                'value' => function ($model) {
-                    if($model->smsgateway == false){
-                        return '<span class="label label-danger">No SMS</span>';
-                    }else{
-                        $keyword = 'smsnotif-'. $model->id;
-                        $outbox = \app\models\Outbox::find()->where(['CreatorID' => $keyword])->one();
-                        $sentitems = \app\models\SentItems::find()->where(['CreatorID' => $keyword])->orderBy(['SendingDateTime' => SORT_DESC])->one();
-
-                        if($outbox !== null){
-                            return '<span class="label label-warning">Pending</span>';
-                        }
-                        else if($sentitems !== null)
-                        {
-                            return ($sentitems->Status == 'SendingOKNoReport') ? '<span class="label label-success">'.$sentitems->Status.'</span>' : '<span class="label label-danger">'.$sentitems->Status.'</span>';
-                        } else {
-                            return '<span class="label label-danger">Tidak Diketahui</span>';
-                        }
-
-                    }
+            'attribute' => 'smsgateway', // atau ganti dengan kolom baru pesan_wa kalau sudah ada
+            'label' => 'Pesan WA',
+            'format' => 'raw',
+            'value' => function ($model) {
+                // Kalau belum pernah kirim WA
+                if ($model->smsgateway == false) {
+                    return '<span class="label label-danger">Belum Dikirim</span>';
                 }
-            ],
+
+                // Kalau sudah pernah kirim WA
+                if ($model->smsgateway == 'pending') {
+                    return '<span class="label label-warning">Pending</span>';
+                }
+
+                if ($model->smsgateway == 'terkirim') {
+                    return '<span class="label label-success">Terkirim</span>';
+                }
+
+                // Default kalau status tidak dikenali
+                return '<span class="label label-default">Tidak Diketahui</span>';
+            }
+        ],
+
             //'koderak',
             'status',
 

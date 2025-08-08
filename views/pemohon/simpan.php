@@ -18,14 +18,15 @@ $this->params['breadcrumbs'][] = $this->title;
     
 <div class="pemohon-search">
 
-    <?php $form = ActiveForm::begin([
-        'action' => ['simpan'],
+        <?php $form = ActiveForm::begin([
+        'action' => [Yii::$app->controller->action->id], // Perbaiki agar tetap di halaman ini
         'method' => 'get',
         'options' => [
             'data-pjax' => 1
         ],
     ]); ?>
     <?= $form->field($searchModel, 'nopermohonan') ?>
+
 
     <div class="form-group">
         <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>

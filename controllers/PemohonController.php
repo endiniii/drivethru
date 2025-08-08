@@ -455,14 +455,27 @@ class PemohonController extends Controller
      * @return Pemohon the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
-    protected function findModel($id)
-    {
-        if (($model = Pemohon::findOne($id)) !== null) {
-            return $model;
-        }
-
-        throw new NotFoundHttpException('The requested page does not exist.');
+   protected function findModel($id)
+{
+    if (($model = Pemohon::findOne($id)) !== null) {
+        return $model;
     }
+
+    throw new NotFoundHttpException('Data tidak ditemukan.');
+}
+
+public function actionUpdatePesanWa($id)
+{
+    \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+    $model = $this->findModel($id);
+    $model->smsgateway = true; // ubah status jadi terkirim
+    if ($model->save(false)) {
+        return ['success' => true];
+    }
+    return ['success' => false];
+}
+
 
     protected function cekrak()
     {
@@ -486,6 +499,17 @@ class PemohonController extends Controller
 
         return $rak_id;
     }
+
+    public function actionPesanWaTerkirim($id)
+{
+    $model = $this->findModel($id); // Ambil data pemohon berdasarkan ID
+    $model->smsgateway = true; // Ubah status jadi terkirim
+    $model->save(false); // Simpan tanpa validasi
+
+    Yii::$app->session->setFlash('success', 'Status Pesan WA berhasil diperbarui.');
+    return $this->redirect(['index']); // Kembali ke daftar pemohon
+}
+
 public function actionCreateCilacap()
 {
     $model = new Pemohon();
@@ -546,8 +570,12 @@ public function actionBanyumasMpp()
     $searchModel = new \app\models\PemohonSearch();
     $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-    $nopermohonan = Yii::$app->request->get('nopermohonan');
-    $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+    $nopermohonan = Yii::$app->request->get('PemohonSearch')['nopermohonan'] ?? null;
+
+    $model = null;
+    if ($nopermohonan !== null) {
+        $model = \app\models\Pemohon::findOne(['nopermohonan' => $nopermohonan]);
+    }
 
     $tersimpan = false;
 
@@ -558,6 +586,7 @@ public function actionBanyumasMpp()
         'tersimpan' => $tersimpan,
     ]);
 }
+
 
 public function actionBanyumasNgapak()
 {
